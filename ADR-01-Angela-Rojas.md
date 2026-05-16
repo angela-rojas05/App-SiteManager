@@ -53,13 +53,12 @@ Se usará Entity Framework Core para conectar las clases de C# con la base de da
 
 ### Alternativas consideradas
 
-*(Mínimo 3 filas)*
 
 | Alternativa | Por qué la descarté |
 |-------------|---------------------|
-| ...         | ...                 |
-| ...         | ...                 |
-| ...         | ...                 |
+|  **Java + Spring Boot**  | Se descartó porque requiere más configuración inicial. Como ahora se usa solo C# y ASP.NET Core en la materia, tiene más sentido trabajar con estas tecnologìas ya que asi el profesor podria brindarme alguna ayuda si la requiero. |
+|  **PostgreSQL (Base de datos)**  | Aunque es más potente, su configuración es más compleja. MySQL es más sencillo de usar para un proyecto individual. |
+| **Arquitectura de Microservicios** | Es una arquitectura más compleja que no es necesaria para un proyecto pequeño, ademas considerando las otras herramientas que aun quiero dominar me resultaria tedioso. MVC es mas que suficiente. |
 
 ---
 
