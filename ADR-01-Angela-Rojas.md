@@ -66,18 +66,19 @@ Se usará Entity Framework Core para conectar las clases de C# con la base de da
 
 **✅ Lo que gano:**
 
-**Técnico:** La adopción de MVC con ASP.NET Core me va a permitir una separación clara de responsabilidades desde el inicio. Agregar nuevas entidades al sistema (por ejemplo, una secciòn de registro de pagos o proveedores) implica únicamente crear una nueva clase C#, sin afectar el resto del sistema. Esto hace que el proyecto sea mantenible y mas que nada escalable.
+- **Técnico:** La adopción de MVC con ASP.NET Core me va a permitir una separación clara de responsabilidades desde el inicio. Agregar nuevas entidades al sistema (por ejemplo, una secciòn de registro de pagos o proveedores) implica únicamente crear una nueva clase C#, sin afectar el resto del sistema. Esto hace que el proyecto sea mantenible y mas que nada escalable.
 
-**Proceso:** Al trabajar sola, Al usar un mismo ecosistema (ASP.NET Core + Entity Framework Core), se reduce la complejidad y el tiempo de configuración. Esto me permite enfocarme más en la lógica del sistema en lugar de en la configuración.
+- **Proceso:** Al trabajar sola, Al usar un mismo ecosistema (ASP.NET Core + Entity Framework Core), se reduce la complejidad y el tiempo de configuración. Esto me permite enfocarme más en la lógica del sistema en lugar de en la configuración.
 
 **⚠️ Lo que sacrifico o asumo:**
 
-**Limitación técnica:** Al usar una arquitectura MVC, todo el backend está en un solo sistema. Si en el futuro se necesita dividirlo en partes más independientes (microservicios), sería necesario hacer cambios grandes.
+- **Limitación técnica:** Al usar una arquitectura MVC, todo el backend está en un solo sistema. Si en el futuro se necesita dividirlo en partes más independientes (microservicios), sería necesario hacer cambios grandes.
 
-**Deuda o riesgo:** Al usar MySQL, se asume que será suficiente para las necesidades del proyecto durante el cuatrimestre. Sin embargo, si el sistema creciera y necesitara manejar más datos o funciones más avanzadas, podría ser necesario cambiar a una base de datos más robusta como PostgreSQL. Hacer este cambio más adelante implicaría modificar migraciones, revisar compatibilidades y ajustar consultas, lo que podría tomar bastante tiempo y esfuerzo.
+- **Deuda o riesgo:** Al usar MySQL, se asume que será suficiente para las necesidades del proyecto durante el cuatrimestre. Sin embargo, si el sistema creciera y necesitara manejar más datos o funciones más avanzadas, podría ser necesario cambiar a una base de datos más robusta como PostgreSQL. Hacer este cambio más adelante implicaría modificar migraciones, revisar compatibilidades y ajustar consultas, lo que podría tomar bastante tiempo y esfuerzo.
 
 ## Diagrama
 
 Un boceto de cómo se estructura tu sistema (draw.io, Mermaid o a mano escaneado)
 
-![Diagrama del sistema]( ./ruta/diagrama-nivel-1.png )
+![Diagrama del sistema](https://www.plantuml.com/plantuml/png/VLJHRjCm57ttLrZTyz3GGAmlQDsjBI7LoqYMy00yt2PMPJMrY-CmTGY9Z-0B-HBSE3LjIfP8pV6zvnpdNDMvRHnQrsvgufIh9SsKam8rhgIbVtxzfZFxhVMbqhKMgIY0a6Qjz1OjRcXfDbkZfNQPstcfzIpKgreUKPPOhbVMjBe2KnjBB_XiV__FXFuWr5ztGyLypXZdeMTi9MrVlxwUJW6wEZU7TrYQkY8_Z-mhTBZ4HewvSyxU0foxSpwTNbsTM6sz5bVZJbVx-znfsbtUYM3fV25lMhJA41BdHIV51_Qf6tUApvxouBTf9lI2tV0td8SDZmRrELDQoSPPKoZvz9LYGxDYo85Q-QUC33XZiE-gahfK63ditCKuzOobClgVKNB6wYD5IbxukCVv8Bb_J9F5WgNXJvKzlBfdZnICbVkOC_wEpLw82KRxtxgMDeI5aR037i1ev06JmNZmeMa28_47n1m6Gn39d2sw_4mxvNQKMzp89sFNXq5mpc_OwnS6qHcBR2H-w8w73dqs7hKtI4O2XdO-x0fqqYgiGriCswdS6djukNG_atWc9sANVLnyqSSVdVdTn3Fz8vvDqczFBo_VqwmuMSBfaWswoUawBmZ9Yk03108282mW1iGhUYMGFC0Sl0Www2SFFVAY7Z4lEXGJalSmZneHKKg8o3euloC28c8HGH9X7f68A3sWMwchTbF_1G00)
+
