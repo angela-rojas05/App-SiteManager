@@ -66,15 +66,15 @@ Se usará Entity Framework Core para conectar las clases de C# con la base de da
 
 **✅ Lo que gano:**
 
-Menciona al menos:
-- Una consecuencia **técnica** — qué se vuelve más fácil de construir, mantener o escalar en tu sistema
-- Una consecuencia sobre el **proceso o el equipo** — cómo afecta la forma en que vas a trabajar
+**Técnico:** La adopción de MVC con ASP.NET Core me va a permitir una separación clara de responsabilidades desde el inicio. Agregar nuevas entidades al sistema (por ejemplo, una secciòn de registro de pagos o proveedores) implica únicamente crear una nueva clase C#, sin afectar el resto del sistema. Esto hace que el proyecto sea mantenible y mas que nada escalable.
+
+**Proceso:** Al trabajar sola, Al usar un mismo ecosistema (ASP.NET Core + Entity Framework Core), se reduce la complejidad y el tiempo de configuración. Esto me permite enfocarme más en la lógica del sistema en lugar de en la configuración.
 
 **⚠️ Lo que sacrifico o asumo:**
 
-Menciona al menos:
-- Una **limitación técnica** — qué no podrás hacer fácilmente con esta decisión
-- Una **deuda o riesgo** — qué podrías tener que resolver más adelante si el proyecto crece
+**Limitación técnica:** Al usar una arquitectura MVC, todo el backend está en un solo sistema. Si en el futuro se necesita dividirlo en partes más independientes (microservicios), sería necesario hacer cambios grandes.
+
+**Deuda o riesgo:** Al usar MySQL, se asume que será suficiente para las necesidades del proyecto durante el cuatrimestre. Sin embargo, si el sistema creciera y necesitara manejar más datos o funciones más avanzadas, podría ser necesario cambiar a una base de datos más robusta como PostgreSQL. Hacer este cambio más adelante implicaría modificar migraciones, revisar compatibilidades y ajustar consultas, lo que podría tomar bastante tiempo y esfuerzo.
 
 ## Diagrama
 
