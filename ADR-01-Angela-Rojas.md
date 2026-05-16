@@ -1,4 +1,4 @@
-# ADR-01: [Título corto de la decisión]
+# ADR-01: SiteManager - estructura del proyecto 
 
 | Campo  | Valor |
 |--------|-------|
@@ -21,11 +21,35 @@ Está idea va dirigida a profesionales y trabajadores que realizan supervisión 
 
 ## Decisión
 
-¿Qué decidiste? Sé específico: nombra la tecnología, el patrón o el estilo arquitectónico que elegiste.
+Para empezar escogi la arquitectura de software **Model-View-Controller (MVC)** como patrón estructural principal del sistema. Este patrón separa claramente las responsabilidades: el **Model** representa las entidades del dominio (Siniestro, Cliente, Evidencia, Cotización), el **Controller** maneja la lógica de negocio, y la **View** es solo la parte en la que el cliente o usuario interactua.
 
-### ¿Por qué?
+**¿Por qué?** El proyecto maneja entidades con relaciones entre sí y procesos (un siniestro pasa por distintas etapas desde el levantamiento hasta el cierre). MVC permite organizar este proceso de forma clara, asignando a cada capa una responsabilidad específica. Esto facilita el mantenimiento y la escalabilidad del proyecto.
 
-Argumenta tu decisión. No basta con decir "es lo que vimos en clase" — explica qué característica concreta de lo que elegiste resuelve tu problema.
+---
+
+### ASP.NET Core y C#
+
+Se eligió ASP.NET Core como framework principal del backend por su soporte nativo al patrón MVC.
+
+**¿Por qué?** ASP.NET Core implementa MVC de forma nativa, lo que reduce la configuración manual y permite enfocarse en la lógica del negocio. 
+
+---
+
+### Base de datos: MySQL
+
+Se eligió MySQL como motor de base de datos relacional.
+
+**¿Por qué?** Es una base de datos relacional que permite organizar bien la información del sistema. Es ideal ya que las entidades están relacionadas entre sí (por ejemplo, clientes, siniestros y evidencias), y MySQL ayuda a mantener esa relación de forma ordenada y consistente. También es fácil de usar, instalar y tiene mucha documentación, lo que la hace adecuada para un proyecto pequeño.
+
+---
+
+### Entity Framework
+
+Se usará Entity Framework Core para conectar las clases de C# con la base de datos MySQL.
+
+**¿Por qué?** Permite trabajar las tablas como si fueran clases en el código, lo que hace más fácil mantener todo organizado y consistente. Además, permite hacer cambios en la base de datos de forma controlada mediante migraciones, sin tener que modificarla manualmente cada vez.
+
+---
 
 ### Alternativas consideradas
 
