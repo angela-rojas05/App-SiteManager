@@ -88,5 +88,26 @@ Un boceto de cómo se estructura tu sistema (draw.io, Mermaid o a mano escaneado
 
 ## Vistas Arquitectónicas
 
+---
+
+**Vista Lógica**
+
+La vista lógica describe los módulos funcionales que componen SiteManager y las responsabilidades de cada uno. El sistema está organizado siguiendo el patrón MVC, donde cada módulo tiene una capa de vista, un controlador y una entidad de modelo correspondiente.
+
+**Módulos funcionales del sistema:**
+
+| Módulo | Responsabilidad |
+|---|---|
+| **Gestión de Siniestros** | Registrar, actualizar y dar seguimiento a cada caso desde el levantamiento inicial hasta el cierre |
+| **Gestión de Clientes** | Administrar la información de los clientes asociados a cada siniestro |
+| **Gestión de Evidencias** | Registrar y organizar las fotografías y documentos de respaldo de cada caso |
+| **Gestión de Cotizaciones** | Crear y consultar los presupuestos y materiales asociados a cada siniestro |
+| **Gestión de Usuarios** | Controlar el acceso al sistema y los permisos según el rol de cada usuario |
+
+Cada módulo se compone de tres elementos dentro de la arquitectura MVC: una vista en Razor Pages que presenta la información al usuario, un controlador en ASP.NET Core que maneja la lógica de negocio, y una entidad de modelo gestionada por Entity Framework Core que representa los datos en la base de datos MySQL.
+
+![Lógica](img/VistaLogica.png)
+
+---
 
 
