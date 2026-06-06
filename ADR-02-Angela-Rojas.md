@@ -139,15 +139,20 @@ La vista de procesos muestra el flujo que sigue una operación importante dentro
 ![Proceso](img/VistaProceso.png)
 
 
-Paso 1 — Petición: El usuario registra un siniestro desde el navegador, enviando una petición HTTP al sistema.
-
-Paso 2 — Procesamiento Sincrónico: ASP.NET Core MVC recibe los datos. El controlador los valida y le ordena al modelo guardarlos. El sistema espera la confirmación antes de continuar.
-
-Paso 3 — Persistencia: Entity Framework Core guarda el registro en la base de datos MySQL de forma segura.
-
-Paso 4 — Evento Asíncrono: Con el registro confirmado, la aplicación web avisa al Servicio de Notificaciones. Al ser asíncrono, la web no se bloquea esperando que el correo se envíe; el usuario ya recibió su respuesta.
-
-Paso 5 — Envío: El Servicio de Notificaciones procesa la cola en segundo plano y envía el correo electrónico al técnico asignado.
+1. Petición: El usuario registra un siniestro desde el navegador, enviando una petición HTTP al sistema.
+2. Procesamiento Sincrónico: ASP.NET Core MVC recibe los datos. El controlador los valida y le ordena al modelo guardarlos. El sistema espera la confirmación antes de continuar.
+3. Persistencia: Entity Framework Core guarda el registro en la base de datos MySQL de forma segura.
+4. Evento Asíncrono: Con el registro confirmado, la aplicación web avisa al Servicio de Notificaciones. Al ser asíncrono, la web no se bloquea esperando que el correo se envíe; el usuario ya recibió su respuesta.
+5. Envío: El Servicio de Notificaciones procesa la cola en segundo plano y envía el correo electrónico al técnico asignado.
 
 ---
 
+## Vista de Despliegue
+
+---
+
+La vista de despliegue describe dónde y cómo se planea ejecutar el sistema. Dado que SiteManager se encuentra actualmente en fase de desarrollo, el despliegue planeado para esta etapa es en entorno local, utilizando la máquina de desarrollo como servidor.
+
+![Despliegue](img/VistaDespliegue.png)
+
+Por ahora SiteManager corre en la computadora local. El usuario abre un navegador, entra a localhost y el sistema responde desde ahí. La aplicación y la base de datos MySQL viven en la misma máquina y se comunican entre sí.
