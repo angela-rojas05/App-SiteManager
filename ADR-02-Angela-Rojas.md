@@ -110,4 +110,23 @@ Cada módulo se compone de tres elementos dentro de la arquitectura MVC: una vis
 
 ---
 
+## Vista de Desarrollo
+
+---
+
+La vista de desarrollo muestra cómo está organizado el código del proyecto por dentro. SiteManager sigue la estructura estándar de ASP.NET Core con MVC, donde cada carpeta tiene una responsabilidad clara y separada.
+
+
+![Desarrollo](img/VistaDesarrollo.png)
+
+
+-Controllers/ — Aquí viven los controladores de cada módulo. Cada archivo recibe las peticiones del usuario, aplica la lógica de negocio y decide qué datos mostrar y en qué vista.
+
+-Models/ — Aquí están las clases C# que representan las entidades del sistema. Cada clase se convierte en una tabla dentro de la base de datos MySQL a través de Entity Framework Core.
+
+-Views/ — Aquí están las vistas Razor organizadas por módulo. Cada subcarpeta contiene los archivos de interfaz correspondientes a su controlador; por ejemplo, la carpeta Siniestro contiene las páginas para crear, editar, listar y ver el detalle de un siniestro.
+
+-Data/ — Aquí vive el contexto de Entity Framework Core (SiteManagerContext), que es la clase que conecta el proyecto con la base de datos MySQL y registra todas las entidades que se van a persistir.
+
+---
 
