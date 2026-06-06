@@ -156,3 +156,15 @@ La vista de despliegue describe dónde y cómo se planea ejecutar el sistema. Da
 ![Despliegue](img/VistaDespliegue.png)
 
 Por ahora SiteManager corre en la computadora local. El usuario abre un navegador, entra a localhost y el sistema responde desde ahí. La aplicación y la base de datos MySQL viven en la misma máquina y se comunican entre sí.
+
+---
+
+## Cláusula de IA 
+
+Se utilizó inteligencia artificial como herramienta de apoyo en las siguientes tareas:
+
+- Generación de los códigos Mermaid para los diagramas de cada vista arquitectónica (lógica, desarrollo, procesos y despliegue)
+- Estructuración del ADR-02 siguiendo el formato establecido.
+- Sugerencias sobre qué incluir en cada vista con base en el proyecto SiteManager.
+
+
