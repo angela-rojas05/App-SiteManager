@@ -130,3 +130,24 @@ La vista de desarrollo muestra cómo está organizado el código del proyecto po
 
 ---
 
+## Vista de Procesos
+
+--- 
+
+La vista de procesos muestra el flujo que sigue una operación importante dentro del sistema. En SiteManager, el proceso más relevante es el **registro de un siniestro nuevo**, ya que es el punto de entrada de toda la información que el sistema gestiona.
+
+![Proceso](img/VistaProceso.png)
+
+
+Paso 1 — Petición: El usuario registra un siniestro desde el navegador, enviando una petición HTTP al sistema.
+
+Paso 2 — Procesamiento Sincrónico: ASP.NET Core MVC recibe los datos. El controlador los valida y le ordena al modelo guardarlos. El sistema espera la confirmación antes de continuar.
+
+Paso 3 — Persistencia: Entity Framework Core guarda el registro en la base de datos MySQL de forma segura.
+
+Paso 4 — Evento Asíncrono: Con el registro confirmado, la aplicación web avisa al Servicio de Notificaciones. Al ser asíncrono, la web no se bloquea esperando que el correo se envíe; el usuario ya recibió su respuesta.
+
+Paso 5 — Envío: El Servicio de Notificaciones procesa la cola en segundo plano y envía el correo electrónico al técnico asignado.
+
+---
+
