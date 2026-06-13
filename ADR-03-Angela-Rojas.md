@@ -1,29 +1,34 @@
-# ADR-02: SiteManager - Implementación de Vistas Arquitectónicas 
+# ADR-03: SiteManager — Estilo Arquitectónico
 
 | Campo  | Valor |
 |--------|-------|
-| Autor  | Àngela Rojas |
-| Fecha  | 05/06/2026 |
+| Autor  | Ángela Rojas |
+| Fecha  | 12/06/2026 |
 | Estado | `APROBADO` |
 
 ---
 
 ## Contexto
 
-Este proyecto en el desarrollo de una app de gestión de siniestros y levantamientos de obra, por ahora llamada "SiteManager", es una plataforma que tiene como meta facilitar y digitalizar el proceso de registro, seguimiento y administración de levantamientos de daños y reparaciones. Actualmente, este tipo de trabajo se gestiona de forma manual mediante hojas físicas, lo que genera pérdida de información, dificultad para consultar antecedentes de cada caso, desorganización en el manejo de evidencias fotográficas, planos, materiales y presupuestos. Como tal la app busca resolver esto juntando toda la información en una sola plataforma accesible y estructurada.
+SiteManager es una aplicación web que busca digitalizar la gestión de siniestros, levantamientos y reparaciones de obra. El sistema maneja varias entidades que se relacionan entre sí, como Siniestro, Cliente, Evidencia y Cotización, además de flujos de trabajo definidos que van desde el registro de un caso hasta su cierre.
 
-Está idea va dirigida a profesionales y trabajadores que realizan supervisión de reparaciones: arquitectos, ingenieros, técnicos de mantenimiento y supervisores de obra.
-
-- En cuanto a las condiciones que influyeron en las decisiones de esta idea de proyecto: se tiene experiencia previa en Java, sin embargo, dado que ahora mismo en la materia está trabajando con ASP.NET y C#, se decidió adoptar estas tecnologìas como una oportunidad para expandir el uso de herramientase y mantener una combinacion con los futuros temas que se veran en clase. 
-- Para la base de datos se eligió MySQL por su facilidad de configuración en entorno local y porque es mas apta para proyectos de baja magnitud, siendo compatible con Entity Framework Core. 
+Al ser un proyecto individual con un tiempo limitado a la duración del cuatrimestre, se necesita un estilo arquitectónico que sea claro, fácil de mantener por una sola persona y que sea compatible con las tecnologías ya elegidas: ASP.NET Core, Razor Pages, Entity Framework Core y MySQL.
 
 ---
 
 ## Decisión
 
-Para empezar escogi la arquitectura de software **Model-View-Controller (MVC)** como patrón estructural principal del sistema. Este patrón separa claramente las responsabilidades: el **Model** representa las entidades del dominio (Siniestro, Cliente, Evidencia, Cotización), el **Controller** maneja la lógica de negocio, y la **View** es solo la parte en la que el cliente o usuario interactua.
 
-**¿Por qué?** El proyecto maneja entidades con relaciones entre sí y procesos (un siniestro pasa por distintas etapas desde el levantamiento hasta el cierre). MVC permite organizar este proceso de forma clara, asignando a cada capa una responsabilidad específica. Esto facilita el mantenimiento y la escalabilidad del proyecto.
+Se eligió la **Arquitectura en Capas (Layered Architecture)** como estilo arquitectónico de SiteManager. El sistema se organiza en cuatro capas bien definidas, donde cada una tiene una responsabilidad específica y solo depende de la capa que tiene debajo:
+
+| Capa | Responsabilidad | En SiteManager |
+|---|---|---|
+| **Presentation** | Presentar la información al usuario y recibir sus acciones | Razor Pages |
+| **Application** | Manejar la lógica de negocio y coordinar las operaciones | Controladores ASP.NET Core |
+| **Domain** | Definir las entidades y reglas del negocio | Modelos C# (Siniestro, Cliente, Evidencia, Cotización, etc.) |
+| **Infrastructure** | Gestionar el acceso a datos y servicios externos | Entity Framework Core + MySQL |
+
+**¿Por qué?** SiteManager ya tiene estas cuatro capas de forma natural en su estructura. Razor Pages maneja la interfaz, los controladores toman las decisiones, los modelos definen qué es cada entidad y Entity Framework Core se encarga de persistir todo en MySQL. Documentar esto como Arquitectura en Capas no es forzar una decisión, sino reconocer y formalizar la estructura que el sistema ya tiene. Además, este estilo garantiza que cada capa pueda modificarse sin afectar a las demás, lo cual es crítico cuando se desarrolla en solitario y los cambios deben ser controlados y predecibles.
 
 ---
 
