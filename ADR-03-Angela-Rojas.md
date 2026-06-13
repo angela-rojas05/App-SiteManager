@@ -89,80 +89,7 @@ Se usará Entity Framework Core para conectar las clases de C# con la base de da
 
 Un boceto de cómo se estructura tu sistema (draw.io, Mermaid o a mano escaneado)
 
-![Diagrama del sistema](https://www.plantuml.com/plantuml/png/VLJHRjCm57ttLrZTyz3GGAmlQDsjBI7LoqYMy00yt2PMPJMrY-CmTGY9Z-0B-HBSE3LjIfP8pV6zvnpdNDMvRHnQrsvgufIh9SsKam8rhgIbVtxzfZFxhVMbqhKMgIY0a6Qjz1OjRcXfDbkZfNQPstcfzIpKgreUKPPOhbVMjBe2KnjBB_XiV__FXFuWr5ztGyLypXZdeMTi9MrVlxwUJW6wEZU7TrYQkY8_Z-mhTBZ4HewvSyxU0foxSpwTNbsTM6sz5bVZJbVx-znfsbtUYM3fV25lMhJA41BdHIV51_Qf6tUApvxouBTf9lI2tV0td8SDZmRrELDQoSPPKoZvz9LYGxDYo85Q-QUC33XZiE-gahfK63ditCKuzOobClgVKNB6wYD5IbxukCVv8Bb_J9F5WgNXJvKzlBfdZnICbVkOC_wEpLw82KRxtxgMDeI5aR037i1ev06JmNZmeMa28_47n1m6Gn39d2sw_4mxvNQKMzp89sFNXq5mpc_OwnS6qHcBR2H-w8w73dqs7hKtI4O2XdO-x0fqqYgiGriCswdS6djukNG_atWc9sANVLnyqSSVdVdTn3Fz8vvDqczFBo_VqwmuMSBfaWswoUawBmZ9Yk03108282mW1iGhUYMGFC0Sl0Www2SFFVAY7Z4lEXGJalSmZneHKKg8o3euloC28c8HGH9X7f68A3sWMwchTbF_1G00)
-
----
-
-## Vistas Arquitectónicas
-
----
-
-**Vista Lógica**
-
-La vista lógica describe los módulos funcionales que componen SiteManager y las responsabilidades de cada uno. El sistema está organizado siguiendo el patrón MVC, donde cada módulo tiene una capa de vista, un controlador y una entidad de modelo correspondiente.
-
-**Módulos funcionales del sistema:**
-
-| Módulo | Responsabilidad |
-|---|---|
-| **Gestión de Siniestros** | Registrar, actualizar y dar seguimiento a cada caso desde el levantamiento inicial hasta el cierre |
-| **Gestión de Clientes** | Administrar la información de los clientes asociados a cada siniestro |
-| **Gestión de Evidencias** | Registrar y organizar las fotografías y documentos de respaldo de cada caso |
-| **Gestión de Cotizaciones** | Crear y consultar los presupuestos y materiales asociados a cada siniestro |
-| **Gestión de Usuarios** | Controlar el acceso al sistema y los permisos según el rol de cada usuario |
-
-Cada módulo se compone de tres elementos dentro de la arquitectura MVC: una vista en Razor Pages que presenta la información al usuario, un controlador en ASP.NET Core que maneja la lógica de negocio, y una entidad de modelo gestionada por Entity Framework Core que representa los datos en la base de datos MySQL.
-
-![Lógica](img/VistaLogica.png)
-
----
-
-## Vista de Desarrollo
-
----
-
-La vista de desarrollo muestra cómo está organizado el código del proyecto por dentro. SiteManager sigue la estructura estándar de ASP.NET Core con MVC, donde cada carpeta tiene una responsabilidad clara y separada.
-
-
-![Desarrollo](img/VistaDesarrollo.png)
-
-
--Controllers/ — Aquí viven los controladores de cada módulo. Cada archivo recibe las peticiones del usuario, aplica la lógica de negocio y decide qué datos mostrar y en qué vista.
-
--Models/ — Aquí están las clases C# que representan las entidades del sistema. Cada clase se convierte en una tabla dentro de la base de datos MySQL a través de Entity Framework Core.
-
--Views/ — Aquí están las vistas Razor organizadas por módulo. Cada subcarpeta contiene los archivos de interfaz correspondientes a su controlador; por ejemplo, la carpeta Siniestro contiene las páginas para crear, editar, listar y ver el detalle de un siniestro.
-
--Data/ — Aquí vive el contexto de Entity Framework Core (SiteManagerContext), que es la clase que conecta el proyecto con la base de datos MySQL y registra todas las entidades que se van a persistir.
-
----
-
-## Vista de Procesos
-
---- 
-
-La vista de procesos muestra el flujo que sigue una operación importante dentro del sistema. En SiteManager, el proceso más relevante es el **registro de un siniestro nuevo**, ya que es el punto de entrada de toda la información que el sistema gestiona.
-
-![Proceso](img/VistaProceso.png)
-
-
-1. Petición: El usuario registra un siniestro desde el navegador, enviando una petición HTTP al sistema.
-2. Procesamiento Sincrónico: ASP.NET Core MVC recibe los datos. El controlador los valida y le ordena al modelo guardarlos. El sistema espera la confirmación antes de continuar.
-3. Persistencia: Entity Framework Core guarda el registro en la base de datos MySQL de forma segura.
-4. Evento Asíncrono: Con el registro confirmado, la aplicación web avisa al Servicio de Notificaciones. Al ser asíncrono, la web no se bloquea esperando que el correo se envíe; el usuario ya recibió su respuesta.
-5. Envío: El Servicio de Notificaciones procesa la cola en segundo plano y envía el correo electrónico al técnico asignado.
-
----
-
-## Vista de Despliegue
-
----
-
-La vista de despliegue describe dónde y cómo se planea ejecutar el sistema. Dado que SiteManager se encuentra actualmente en fase de desarrollo, el despliegue planeado para esta etapa es en entorno local, utilizando la máquina de desarrollo como servidor.
-
-![Despliegue](img/VistaDespliegue.png)
-
-Por ahora SiteManager corre en la computadora local. El usuario abre un navegador, entra a localhost y el sistema responde desde ahí. La aplicación y la base de datos MySQL viven en la misma máquina y se comunican entre sí.
+![Diagrama del sistema](img/ArquitecturaNew.png)
 
 ---
 
@@ -170,8 +97,9 @@ Por ahora SiteManager corre en la computadora local. El usuario abre un navegado
 
 Se utilizó inteligencia artificial como herramienta de apoyo en las siguientes tareas:
 
-- Generación de los códigos Mermaid para los diagramas de cada vista arquitectónica (lógica, desarrollo, procesos y despliegue)
-- Estructuración del ADR-02 siguiendo el formato establecido.
-- Sugerencias sobre qué incluir en cada vista con base en el proyecto SiteManager.
+- Generación del código Mermaid para el diagrama de Arquitectura en Capas
+- Apoyo en la estructuración del ADR-03
+- Sugerencias para argumentar y justificar el estilo arquitectónico elegido con base en las decisiones previas del ADR-01 y ADR-02
+- Apoyo para redactar las alternativas descartadas con argumentos coherentes al contexto del proyecto
 
 
