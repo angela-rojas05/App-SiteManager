@@ -58,12 +58,12 @@ Se usará Entity Framework Core para conectar las clases de C# con la base de da
 
 ### Alternativas consideradas
 
-
 | Alternativa | Por qué la descarté |
-|-------------|---------------------|
-|  **Java + Spring Boot**  | Se descartó porque requiere más configuración inicial. Como ahora se usa solo C# y ASP.NET Core en la materia, tiene más sentido trabajar con estas tecnologìas ya que asi el profesor podria brindarme alguna ayuda si la requiero. |
-|  **PostgreSQL (Base de datos)**  | Aunque es más potente, su configuración es más compleja. MySQL es más sencillo de usar para un proyecto individual. |
-| **Arquitectura de Microservicios** | Es una arquitectura más compleja que no es necesaria para un proyecto pequeño, ademas considerando las otras herramientas que aun quiero dominar me resultaria tedioso. MVC es mas que suficiente. |
+|---|---|
+| **Microservicios** | Requiere dividir el sistema en servicios completamente independientes, cada uno con su propia base de datos, despliegue y comunicación entre sí. SiteManager maneja entidades muy relacionadas entre sí, como Siniestros, Clientes y Evidencias, por lo que separarlas en servicios distintos complicaría innecesariamente algo que funciona mejor unido. Además, al ser un proyecto individual que corre en entorno local, mantener múltiples servicios corriendo al mismo tiempo sería difícil de gestionar. |
+| **Arquitectura Hexagonal** | Es un estilo muy limpio que separa la lógica de negocio de todo lo externo, como la base de datos o la interfaz. Sin embargo, para aplicarlo correctamente se necesitan interfaces, adaptadores y puertos que agregan capas de abstracción que SiteManager no necesita en este momento. La Arquitectura en Capas ya logra esa separación de forma más directa y sin tanta configuración adicional. |
+| **Event-Driven** | Este estilo funciona cuando el sistema necesita reaccionar a muchos eventos de forma desacoplada y en tiempo real. SiteManager tiene flujos de trabajo lineales y bien definidos: el usuario registra un siniestro, el controlador lo procesa y EF Core lo guarda en MySQL. No hay necesidad de un sistema de eventos para coordinar eso, ya que el flujo es predecible y directo. |
+| **Serverless** | Implica dividir toda la lógica en funciones independientes desplegadas en la nube. SiteManager actualmente corre en entorno local con ASP.NET Core como un solo proyecto, y toda su estructura, desde los controladores hasta el contexto de Entity Framework Core, está pensada para funcionar como una aplicación unificada. Migrar a serverless implicaría reescribir gran parte de lo ya definido en el ADR-01 y ADR-02. | por una sola persona, este estilo no encaja con la realidad del proyecto. |
 
 ---
 
@@ -71,15 +71,17 @@ Se usará Entity Framework Core para conectar las clases de C# con la base de da
 
 **✅ Lo que gano:**
 
-- **Técnico:** La adopción de MVC con ASP.NET Core me va a permitir una separación clara de responsabilidades desde el inicio. Agregar nuevas entidades al sistema (por ejemplo, una secciòn de registro de pagos o proveedores) implica únicamente crear una nueva clase C#, sin afectar el resto del sistema. Esto hace que el proyecto sea mantenible y mas que nada escalable.
+- **Técnico:** La separación en capas hace que cada parte del sistema tenga una responsabilidad clara. Si necesito cambiar cómo se ve una pantalla, solo toco Razor Pages sin afectar la lógica de negocio. Si cambio cómo se guarda un siniestro en la base de datos, solo toco la capa de Infrastructure sin que las demás capas se enteren. Eso hace que el código sea más fácil de mantener y modificar conforme el proyecto avanza.
 
-- **Proceso:** Al trabajar sola, Al usar un mismo ecosistema (ASP.NET Core + Entity Framework Core), se reduce la complejidad y el tiempo de configuración. Esto me permite enfocarme más en la lógica del sistema en lugar de en la configuración.
+- **Proceso:** Al trabajar sola, tener capas bien definidas me permite concentrarme en una parte del sistema a la vez sin perder el hilo de lo que hace cada cosa. La estructura es predecible: siempre sé que la lógica vive en los controladores, las entidades en los modelos y el acceso a datos en Entity Framework Core.
+
+- **Coherencia:** Este estilo es completamente compatible con las decisiones tomadas en el ADR-01 y ADR-02. No requiere cambiar el stack tecnológico ni la organización del proyecto, sino que formaliza y documenta la estructura que SiteManager ya tiene de forma natural.
 
 **⚠️ Lo que sacrifico o asumo:**
 
-- **Limitación técnica:** Al usar una arquitectura MVC, todo el backend está en un solo sistema. Si en el futuro se necesita dividirlo en partes más independientes (microservicios), sería necesario hacer cambios grandes.
+- **Limitación técnica:** En la Arquitectura en Capas, las capas superiores dependen de las inferiores. Si en algún momento se quisiera cambiar MySQL por otro motor de base de datos, ese cambio afectaría la capa de Infrastructure y potencialmente la de Domain, lo que requeriría revisar las migraciones y el contexto de Entity Framework Core.
 
-- **Deuda o riesgo:** Al usar MySQL, se asume que será suficiente para las necesidades del proyecto durante el cuatrimestre. Sin embargo, si el sistema creciera y necesitara manejar más datos o funciones más avanzadas, podría ser necesario cambiar a una base de datos más robusta como PostgreSQL. Hacer este cambio más adelante implicaría modificar migraciones, revisar compatibilidades y ajustar consultas, lo que podría tomar bastante tiempo y esfuerzo.
+- **Escalabilidad limitada:** Este estilo funciona muy bien para el tamaño actual de SiteManager, pero si el sistema creciera significativamente en funcionalidades o usuarios concurrentes, la Arquitectura en Capas podría volverse un cuello de botella. En ese escenario, migrar a un estilo como microservicios sería el siguiente paso natural.
 
 ---
 
