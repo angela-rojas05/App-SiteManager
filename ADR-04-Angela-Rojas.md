@@ -23,17 +23,34 @@ Conforme el proyecto avanza, surge la necesidad de exponer la información de fo
 
 ## Decisión
 
+Se decidió incorporar una **API REST** a SiteManager, implementada con **ASP.NET Core Web API**, comenzando con el módulo de **Siniestros**. La API expone las operaciones básicas de Crear, Leer, Actualizar y Eliminar (CRUD) mediante los siguientes endpoints:
 
-Se eligió la **Arquitectura en Capas (Layered Architecture)** como estilo arquitectónico de SiteManager. El sistema se organiza en cuatro capas bien definidas, donde cada una tiene una responsabilidad específica y solo depende de la capa que tiene debajo:
-
-| Capa | Responsabilidad | En SiteManager |
+| Método HTTP | Ruta | Función |
 |---|---|---|
-| **Presentation** | Presentar la información al usuario y recibir sus acciones | Razor Pages |
-| **Application** | Manejar la lógica de negocio y coordinar las operaciones | Controladores ASP.NET Core |
-| **Domain** | Definir las entidades y reglas del negocio | Modelos C# (Siniestro, Cliente, Evidencia, Cotización, etc.) |
-| **Infrastructure** | Gestionar el acceso a datos y servicios externos | Entity Framework Core + MySQL |
+| `GET` | `/api/siniestros` | Obtener todos los siniestros |
+| `GET` | `/api/siniestros/{id}` | Obtener un siniestro específico por ID |
+| `POST` | `/api/siniestros` | Crear un nuevo siniestro |
+| `PUT` | `/api/siniestros/{id}` | Actualizar un siniestro existente |
+| `DELETE` | `/api/siniestros/{id}` | Eliminar un siniestro |
 
-**¿Por qué?** SiteManager ya tiene estas cuatro capas de forma natural en su estructura. Razor Pages maneja la interfaz, los controladores toman las decisiones, los modelos definen qué es cada entidad y Entity Framework Core se encarga de persistir todo en MySQL. Documentar esto como Arquitectura en Capas no es forzar una decisión, sino reconocer y formalizar la estructura que el sistema ya tiene. Además, este estilo garantiza que cada capa pueda modificarse sin afectar a las demás, lo cual es crítico cuando se desarrolla en solitario y los cambios deben ser controlados y predecibles.
+La API convive con las Razor Pages ya existentes dentro del mismo proyecto. Razor Pages sigue siendo la forma en que el usuario interactúa visualmente con el sistema, mientras que la API REST es una puerta adicional que entrega y recibe datos en formato JSON, pensada para sistemas externos. La documentación de los endpoints se hace mediante **Swagger**, que es el estándar de la industria para documentar APIs.
+
+**¿Por qué REST?** REST es un estilo ampliamente adoptado en la industria porque utiliza el protocolo HTTP de forma estándar: cada método (GET, POST, PUT, DELETE) tiene un significado claro y predecible. Esto facilita que cualquier desarrollador externo entienda cómo consumir la API sin necesidad de documentación extensa adicional. Además, REST es compatible de forma natural con ASP.NET Core Web API, lo que evita agregar dependencias o tecnologías externas al proyecto.
+
+---
+
+**Detalle de cada endpoint:**
+
+- **`GET /api/siniestros`** — Devuelve la lista completa de siniestros registrados en el sistema, incluyendo sus datos principales como cliente, tipo de daño y estado actual. Útil para que un sistema externo consulte todos los casos existentes de un vistazo.
+
+- **`GET /api/siniestros/{id}`** — Devuelve la información detallada de un siniestro específico a partir de su identificador. Si el siniestro no existe, la API responde con un código 404 (No encontrado).
+
+- **`POST /api/siniestros`** — Permite crear un nuevo siniestro enviando los datos necesarios (cliente, tipo de daño, dirección, descripción) en el cuerpo de la petición. Si el registro es exitoso, la API responde con un código 200 junto con el siniestro recién creado.
+
+- **`PUT /api/siniestros/{id}`** — Permite actualizar la información de un siniestro existente, como su estado o descripción. Si el siniestro no existe, responde con un código 404; si la actualización es correcta, responde con un código 204 (Sin contenido).
+
+- **`DELETE /api/siniestros/{id}`** — Elimina un siniestro del sistema a partir de su identificador. Se utiliza, por ejemplo, cuando un caso fue registrado por error. Responde con un código 200 si la eliminación fue exitosa, o 404 si el siniestro no existe.
+
 
 ---
 
