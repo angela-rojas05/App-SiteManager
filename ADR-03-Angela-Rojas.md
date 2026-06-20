@@ -1,10 +1,10 @@
-# ADR-03: SiteManager — Estilo Arquitectónico
+# ADR-04: SiteManager — Incorporación de API REST
 
 | Campo  | Valor |
 |--------|-------|
 | Autor  | Ángela Rojas |
-| Fecha  | 12/06/2026 |
-| Estado | `APROBADO` |
+| Fecha  | 19/06/2026 |
+| Estado | `Propuesto` |
 
 ---
 
@@ -13,6 +13,11 @@
 SiteManager es una aplicación web que busca digitalizar la gestión de siniestros, levantamientos y reparaciones de obra. El sistema maneja varias entidades que se relacionan entre sí, como Siniestro, Cliente, Evidencia y Cotización, además de flujos de trabajo definidos que van desde el registro de un caso hasta su cierre.
 
 Al ser un proyecto individual con un tiempo limitado a la duración del cuatrimestre, se necesita un estilo arquitectónico que sea claro, fácil de mantener por una sola persona y que sea compatible con las tecnologías ya elegidas: ASP.NET Core, Razor Pages, Entity Framework Core y MySQL.
+
+
+SiteManager actualmente expone toda su funcionalidad a través de Razor Pages, donde el usuario interactúa directamente desde el navegador con formularios y vistas HTML. Esto funciona bien para los usuarios internos del sistema, como técnicos, supervisores y arquitectos, pero limita la posibilidad de que otros sistemas externos puedan consultar o enviar información a SiteManager sin pasar por una pantalla.
+
+Conforme el proyecto avanza, surge la necesidad de exponer la información de forma más estructurada y accesible, de manera que otros sistemas puedan comunicarse con SiteManager directamente. Para esto se requiere incorporar una forma de intercambiar datos en un formato estándar, sin depender únicamente de las páginas web ya existentes.
 
 ---
 
