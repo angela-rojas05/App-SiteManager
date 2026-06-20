@@ -76,52 +76,52 @@ Se usará Entity Framework Core para conectar las clases de C# con la base de da
 
 **¿Por qué?** Permite trabajar las tablas como si fueran clases en el código, lo que hace más fácil mantener todo organizado y consistente. Además, permite hacer cambios en la base de datos de forma controlada mediante migraciones, sin tener que modificarla manualmente cada vez.
 
----
-
-### Alternativas consideradas
-
-| Alternativa | Por qué la descarté |
-|---|---|
-| **Microservicios** | Requiere dividir el sistema en servicios completamente independientes, cada uno con su propia base de datos, despliegue y comunicación entre sí. SiteManager maneja entidades muy relacionadas entre sí, como Siniestros, Clientes y Evidencias, por lo que separarlas en servicios distintos complicaría innecesariamente algo que funciona mejor unido. Además, al ser un proyecto individual que corre en entorno local, mantener múltiples servicios corriendo al mismo tiempo sería difícil de gestionar. |
-| **Arquitectura Hexagonal** | Es un estilo muy limpio que separa la lógica de negocio de todo lo externo, como la base de datos o la interfaz. Sin embargo, para aplicarlo correctamente se necesitan interfaces, adaptadores y puertos que agregan capas de abstracción que SiteManager no necesita en este momento. La Arquitectura en Capas ya logra esa separación de forma más directa y sin tanta configuración adicional. |
-| **Event-Driven** | Este estilo funciona cuando el sistema necesita reaccionar a muchos eventos de forma desacoplada y en tiempo real. SiteManager tiene flujos de trabajo lineales y bien definidos: el usuario registra un siniestro, el controlador lo procesa y EF Core lo guarda en MySQL. No hay necesidad de un sistema de eventos para coordinar eso, ya que el flujo es predecible y directo. |
-| **Serverless** | Implica dividir toda la lógica en funciones independientes desplegadas en la nube. SiteManager actualmente corre en entorno local con ASP.NET Core como un solo proyecto, y toda su estructura, desde los controladores hasta el contexto de Entity Framework Core, está pensada para funcionar como una aplicación unificada. Migrar a serverless implicaría reescribir gran parte de lo ya definido en el ADR-01 y ADR-02. | por una sola persona, este estilo no encaja con la realidad del proyecto. |
 
 ---
 
 ## Consecuencias
 
+
 **✅ Lo que gano:**
 
-- **Técnico:** La separación en capas hace que cada parte del sistema tenga una responsabilidad clara. Si necesito cambiar cómo se ve una pantalla, solo toco Razor Pages sin afectar la lógica de negocio. Si cambio cómo se guarda un siniestro en la base de datos, solo toco la capa de Infrastructure sin que las demás capas se enteren. Eso hace que el código sea más fácil de mantener y modificar conforme el proyecto avanza.
+- **Técnico:** Exponer Siniestros vía API REST permite que cualquier sistema externo consulte o modifique esa información sin depender de las páginas web. Esto abre la puerta a integraciones futuras, como una app móvil o la conexión con otro sistema, sin tener que rediseñar la arquitectura actual.
 
-- **Proceso:** Al trabajar sola, tener capas bien definidas me permite concentrarme en una parte del sistema a la vez sin perder el hilo de lo que hace cada cosa. La estructura es predecible: siempre sé que la lógica vive en los controladores, las entidades en los modelos y el acceso a datos en Entity Framework Core.
-
-- **Coherencia:** Este estilo es completamente compatible con las decisiones tomadas en el ADR-01 y ADR-02. No requiere cambiar el stack tecnológico ni la organización del proyecto, sino que formaliza y documenta la estructura que SiteManager ya tiene de forma natural.
+- **Documentación profesional:** Al usar Swagger, los endpoints quedan documentados automáticamente con sus parámetros, respuestas esperadas y códigos de estado. Esto facilita que cualquier desarrollador, incluyendo yo misma en el futuro, entienda cómo usar la API sin tener que leer el código fuente.
 
 **⚠️ Lo que sacrifico o asumo:**
 
-- **Limitación técnica:** En la Arquitectura en Capas, las capas superiores dependen de las inferiores. Si en algún momento se quisiera cambiar MySQL por otro motor de base de datos, ese cambio afectaría la capa de Infrastructure y potencialmente la de Domain, lo que requeriría revisar las migraciones y el contexto de Entity Framework Core.
+- **Cobertura parcial:** Por ahora solo el módulo de Siniestros está expuesto mediante API. Si se necesitara integrar Clientes, Evidencias o Cotizaciones con un sistema externo, habría que implementar esos endpoints más adelante.
 
-- **Escalabilidad limitada:** Este estilo funciona muy bien para el tamaño actual de SiteManager, pero si el sistema creciera significativamente en funcionalidades o usuarios concurrentes, la Arquitectura en Capas podría volverse un cuello de botella. En ese escenario, migrar a un estilo como microservicios sería el siguiente paso natural.
+- **Seguridad pendiente:** La API actual no implementa autenticación ni autorización. Cualquiera que conozca la URL podría consultar o modificar los siniestros. Esto es aceptable para esta etapa de desarrollo, pero sería indispensable resolverlo antes de un entorno de producción real.
 
 ---
 
+## Relación con la Arquitectura en Capas
+
+Agregar la API no cambia la Arquitectura en Capas definida en el ADR-03. El nuevo `SiniestroApiController` vive dentro de la capa de **Presentation**, igual que los controladores de Razor Pages, solo que es otra forma de entrar al sistema.
+
+Tanto Razor Pages como la API usan el mismo Domain (los modelos como Siniestro) y la misma Infrastructure (Entity Framework Core + MySQL). La lógica y el acceso a datos no se duplican, solo cambia cómo se entrega la información: como una página web o como un dato en JSON.
+
+----
+
 ## Diagrama
 
-Un boceto de cómo se estructura tu sistema (draw.io, Mermaid o a mano escaneado)
 
-![Diagrama del sistema](img/ArquitecturaNew.png)
+
+![Diagrama del sistema](img/Api_rest.png)
+
+
+El diagrama muestra cómo conviven las dos formas de acceder a SiteManager. Por un lado, el usuario entra desde el navegador y llega al `SiniestroController` de Razor Pages, que le devuelve una página HTML. Por otro lado, un sistema externo hace una petición a `SiniestroApiController`, que le devuelve los mismos datos pero en formato JSON.
+
+Aunque son dos puertas de entrada distintas, ambas terminan llegando al mismo lugar: la capa de Domain, donde vive el modelo de Siniestro, y de ahí a la capa de Infrastructure, donde Entity Framework Core guarda y consulta la información en MySQL. Esto confirma que la lógica de negocio y el acceso a datos no se duplican, solo cambia la forma en que la información se entrega al final.
 
 ---
 
 ## Cláusula de IA 
 
-Se utilizó inteligencia artificial como herramienta de apoyo en las siguientes tareas:
+Para la elaboración de este documento se utilizó inteligencia artificial (Claude, de Anthropic) como herramienta de apoyo en las siguientes tareas:
 
-- Generación del código Mermaid para el diagrama de Arquitectura en Capas
-- Apoyo en la estructuración del ADR-03
-- Sugerencias para argumentar y justificar el estilo arquitectónico elegido con base en las decisiones previas del ADR-01 y ADR-02
-- Apoyo para redactar las alternativas descartadas con argumentos coherentes al contexto del proyecto
-
+- Generación del código Mermaid para el diagrama de la API REST junto a la Arquitectura en Capas
+- Apoyo en la redacción y estructuración del ADR-04
+- Sugerencias para explicar la relación entre la nueva API y las decisiones previas del ADR-01, ADR-02 y ADR-03
 
