@@ -108,7 +108,7 @@ Tanto Razor Pages como la API usan el mismo Domain (los modelos como Siniestro) 
 
 
 
-![Diagrama del sistema](img/Api_rest.png)
+![Diagrama del sistema](../img/Api_rest.png)
 
 
 El diagrama muestra cómo conviven las dos formas de acceder a SiteManager. Por un lado, el usuario entra desde el navegador y llega al `SiniestroController` de Razor Pages, que le devuelve una página HTML. Por otro lado, un sistema externo hace una petición a `SiniestroApiController`, que le devuelve los mismos datos pero en formato JSON.
