@@ -1,0 +1,13 @@
+[
+  {
+    "Id": 1,
+    "NombreUsuario": "Ela",
+    "Contrasena": "elacienta",
+    "NombreCompleto": "Ela Rojas",
+    "Correo": "angelagames12345@hotmail.com",
+    "Telefono": "\u002B529993531192",
+    "Rol": 4,
+    "Activo": true,
+    "FechaRegistro": "2026-06-27T12:51:38.9574946-06:00"
+  }
+]
