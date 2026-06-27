@@ -20,5 +20,16 @@
     "rol": 1,
     "activo": true,
     "fechaRegistro": "2026-03-15T00:00:00"
+  },
+  {
+    "id": 3,
+    "nombreUsuario": "Ela",
+    "contrasena": "elacienta",
+    "nombreCompleto": "Ela Rojas",
+    "correo": "angelagames12345@hotmail.com",
+    "telefono": "\u002B529993531191",
+    "rol": 4,
+    "activo": true,
+    "fechaRegistro": "2026-06-26T22:30:09.7327165-06:00"
   }
 ]

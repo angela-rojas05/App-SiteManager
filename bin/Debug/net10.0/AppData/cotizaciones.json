@@ -58,5 +58,35 @@
       "evidencias": [],
       "cotizaciones": []
     }
+  },
+  {
+    "id": 3,
+    "concepto": "Techo y pintura",
+    "materiales": "Techo, pintura, brochas, mano de obra ",
+    "costoEstimado": 25,
+    "costoFinal": 2500,
+    "fechaCotizacion": "2026-06-26T22:28:12.5913011-06:00",
+    "siniestroId": 3,
+    "siniestro": {
+      "id": 3,
+      "tipoDanio": "Montado de reja ",
+      "direccion": "Calle 179 num 120 col. San Antonio Xluch III ",
+      "descripcion": "Reja rota por choque de trailer ",
+      "estado": 0,
+      "fechaRegistro": "2026-06-26T22:26:41.7864033-06:00",
+      "fechaCierre": null,
+      "clienteId": 3,
+      "cliente": {
+        "id": 3,
+        "nombre": "Angela ",
+        "apellido": "Rojas",
+        "telefono": "\u002B529993531192",
+        "correo": "angelayaritzirojasbrito07138@gmail.com",
+        "direccion": "Calle 179 num 120 col. San Antonio Xluch III ",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
   }
 ]

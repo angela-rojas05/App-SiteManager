@@ -91,5 +91,36 @@
       "evidencias": [],
       "cotizaciones": []
     }
+  },
+  {
+    "id": 4,
+    "nombre": "Coppel",
+    "descripcion": "Compra de repuesto",
+    "unidadMedida": "unidad",
+    "precioUnitario": 1200,
+    "cantidadStock": 3,
+    "proveedor": "Coppel empresa",
+    "siniestroId": 1,
+    "siniestro": {
+      "id": 1,
+      "tipoDanio": "Da\u00F1o por filtraci\u00F3n de agua",
+      "direccion": "Edificio Torres, Apartamento 302",
+      "descripcion": "Filtraci\u00F3n en techo del ba\u00F1o principal",
+      "estado": 1,
+      "fechaRegistro": "2026-06-01T00:00:00",
+      "fechaCierre": null,
+      "clienteId": 1,
+      "cliente": {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "P\u00E9rez",
+        "telefono": "8888-1111",
+        "correo": "juan.perez@email.com",
+        "direccion": "San Jos\u00E9, Costa Rica",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
   }
 ]
