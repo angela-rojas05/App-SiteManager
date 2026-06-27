@@ -1,4 +1,12 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// SiteManager - Scripts personalizados
 
-// Write your JavaScript code.
+document.addEventListener('DOMContentLoaded', function () {
+    const deleteForms = document.querySelectorAll('form[action*="Delete"]');
+    deleteForms.forEach(form => {
+        form.addEventListener('submit', function (e) {
+            if (!confirm('¿Está seguro de que desea eliminar este registro?')) {
+                e.preventDefault();
+            }
+        });
+    });
+});

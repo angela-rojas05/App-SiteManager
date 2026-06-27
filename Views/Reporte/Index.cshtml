@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SiteManager.Models.Reporte>
+@{
+    ViewData["Title"] = "Reportes";
+}
+
+<h2 class="mb-4">Lista de Reportes</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Nuevo Reporte</a>
+</p>
+
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Tipo</th>
+            <th>Siniestro</th>
+            <th>Generado Por</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Titulo</td>
+                <td><span class="badge bg-info">@item.TipoReporte</span></td>
+                <td>@(item.Siniestro?.TipoDanio ?? "Sin asignar")</td>
+                <td>@item.GeneradoPor</td>
+                <td>@item.FechaGeneracion.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Ver</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

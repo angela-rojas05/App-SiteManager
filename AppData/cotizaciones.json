@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "concepto": "Reparación de techo y pintura",
+    "materiales": "Cemento, pintura impermeable, sellador",
+    "costoEstimado": 350000.00,
+    "costoFinal": null,
+    "fechaCotizacion": "2026-06-05T00:00:00",
+    "siniestroId": 1
+  },
+  {
+    "id": 2,
+    "concepto": "Reparación estructural de muro",
+    "materiales": "Varilla, cemento, malla electrosoldada",
+    "costoEstimado": 520000.00,
+    "costoFinal": null,
+    "fechaCotizacion": "2026-06-12T00:00:00",
+    "siniestroId": 2
+  }
+]

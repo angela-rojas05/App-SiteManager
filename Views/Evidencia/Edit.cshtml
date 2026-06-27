@@ -1,0 +1,47 @@
+﻿@model SiteManager.Models.Evidencia
+@{
+    ViewData["Title"] = "Editar Evidencia";
+}
+
+<h2>Editar Evidencia #@Model.Id</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="FechaSubida" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Titulo" class="form-label">Título</label>
+        <input asp-for="Titulo" class="form-control" />
+        <span asp-validation-for="Titulo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descripcion" class="form-label">Descripción</label>
+        <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="RutaArchivo" class="form-label">Ruta del Archivo</label>
+        <input asp-for="RutaArchivo" class="form-control" />
+        <span asp-validation-for="RutaArchivo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SiniestroId" class="form-label">Siniestro</label>
+        <select asp-for="SiniestroId" class="form-select" asp-items='new SelectList(ViewBag.Siniestros, "Id", "TipoDanio")'>
+            <option value="">-- Seleccione un siniestro --</option>
+        </select>
+        <span asp-validation-for="SiniestroId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-warning">Guardar Cambios</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

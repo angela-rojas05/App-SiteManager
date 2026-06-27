@@ -1,0 +1,42 @@
+﻿@model SiteManager.Models.Usuario
+@{
+    ViewData["Title"] = "Detalle del Usuario";
+}
+
+<h2>Detalle del Usuario #@Model.Id</h2>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Nombre de Usuario</dt>
+            <dd class="col-sm-9">@Model.NombreUsuario</dd>
+
+            <dt class="col-sm-3">Nombre Completo</dt>
+            <dd class="col-sm-9">@Model.NombreCompleto</dd>
+
+            <dt class="col-sm-3">Correo</dt>
+            <dd class="col-sm-9">@Model.Correo</dd>
+
+            <dt class="col-sm-3">Teléfono</dt>
+            <dd class="col-sm-9">@Model.Telefono</dd>
+
+            <dt class="col-sm-3">Rol</dt>
+            <dd class="col-sm-9"><span class="badge bg-secondary">@Model.Rol</span></dd>
+
+            <dt class="col-sm-3">Estado</dt>
+            <dd class="col-sm-9">
+                <span class="badge bg-@(Model.Activo ? "success" : "danger")">
+                    @(Model.Activo ? "Activo" : "Inactivo")
+                </span>
+            </dd>
+
+            <dt class="col-sm-3">Fecha de Registro</dt>
+            <dd class="col-sm-9">@Model.FechaRegistro.ToShortDateString()</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "titulo": "Foto del techo dañado",
+    "descripcion": "Vista general del área afectada",
+    "rutaArchivo": "/uploads/evidencia_001.jpg",
+    "fechaSubida": "2026-06-01T10:30:00",
+    "siniestroId": 1
+  },
+  {
+    "id": 2,
+    "titulo": "Foto de la grieta",
+    "descripcion": "Primer plano de la grieta estructural",
+    "rutaArchivo": "/uploads/evidencia_002.jpg",
+    "fechaSubida": "2026-06-10T14:15:00",
+    "siniestroId": 2
+  }
+]

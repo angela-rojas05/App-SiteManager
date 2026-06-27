@@ -1,8 +1,76 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center py-5">
+    <h1 class="display-4 fw-bold text-primary">SiteManager</h1>
+    <p class="lead text-muted">Plataforma de gestión de siniestros, levantamientos y reparaciones de obra.</p>
+    <hr class="my-4" />
+    <p>Digitaliza el registro, seguimiento y administración de daños y reparaciones en un solo lugar.</p>
+</div>
+
+<div class="row text-center g-3">
+    <div class="col-md-4 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Siniestros</h5>
+                <p class="card-text">Registra y da seguimiento a cada caso desde el levantamiento hasta el cierre.</p>
+                <a asp-controller="Siniestro" asp-action="Index" class="btn btn-primary btn-sm">Ir a Siniestros</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title text-success">Clientes</h5>
+                <p class="card-text">Administra la información de los clientes asociados a cada siniestro.</p>
+                <a asp-controller="Cliente" asp-action="Index" class="btn btn-success btn-sm">Ir a Clientes</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title text-warning">Evidencias</h5>
+                <p class="card-text">Organiza fotografías, planos y documentos de respaldo de cada caso.</p>
+                <a asp-controller="Evidencia" asp-action="Index" class="btn btn-warning btn-sm">Ir a Evidencias</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title text-info">Cotizaciones</h5>
+                <p class="card-text">Crea y consulta presupuestos y materiales asociados a cada siniestro.</p>
+                <a asp-controller="Cotizacion" asp-action="Index" class="btn btn-info btn-sm">Ir a Cotizaciones</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title text-secondary">Materiales</h5>
+                <p class="card-text">Gestiona el inventario de materiales de construcción y reparación.</p>
+                <a asp-controller="Material" asp-action="Index" class="btn btn-secondary btn-sm">Ir a Materiales</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title text-success">Reportes</h5>
+                <p class="card-text">Genera y consulta reportes técnicos de levantamiento e inspección.</p>
+                <a asp-controller="Reporte" asp-action="Index" class="btn btn-success btn-sm">Ir a Reportes</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title text-dark">Usuarios</h5>
+                <p class="card-text">Administra los usuarios del sistema: arquitectos, ingenieros y técnicos.</p>
+                <a asp-controller="Usuario" asp-action="Index" class="btn btn-dark btn-sm">Ir a Usuarios</a>
+            </div>
+        </div>
+    </div>
 </div>

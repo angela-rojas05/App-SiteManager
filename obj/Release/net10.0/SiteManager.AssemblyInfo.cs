@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SiteManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+867359b2eeb38ca39c8bb333555a073ca5aba704")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b53d580631315379906a361e8ea747caf2a4e6df")]
 [assembly: System.Reflection.AssemblyProductAttribute("SiteManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SiteManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

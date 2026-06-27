@@ -1,0 +1,32 @@
+﻿@model SiteManager.Models.Cliente
+@{
+    ViewData["Title"] = "Eliminar Cliente";
+}
+
+<h2>Eliminar Cliente</h2>
+
+<h4>¿Está seguro de que desea eliminar este cliente?</h4>
+
+<div class="card border-danger mt-3">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3">Nombre Completo</dt>
+            <dd class="col-sm-9">@Model.Nombre @Model.Apellido</dd>
+
+            <dt class="col-sm-3">Teléfono</dt>
+            <dd class="col-sm-9">@Model.Telefono</dd>
+
+            <dt class="col-sm-3">Correo</dt>
+            <dd class="col-sm-9">@Model.Correo</dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post" class="mt-3">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

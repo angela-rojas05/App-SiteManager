@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SiteManager.Models.Cotizacion>
+@{
+    ViewData["Title"] = "Cotizaciones";
+}
+
+<h2 class="mb-4">Lista de Cotizaciones</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Nueva Cotización</a>
+</p>
+
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Concepto</th>
+            <th>Costo Estimado</th>
+            <th>Costo Final</th>
+            <th>Siniestro</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Concepto</td>
+                <td>₡@item.CostoEstimado.ToString("N2")</td>
+                <td>@(item.CostoFinal.HasValue ? "₡" + item.CostoFinal.Value.ToString("N2") : "Pendiente")</td>
+                <td>@(item.Siniestro?.TipoDanio ?? "Sin asignar")</td>
+                <td>@item.FechaCotizacion.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Ver</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

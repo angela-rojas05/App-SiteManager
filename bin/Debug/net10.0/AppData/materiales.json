@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cemento Portland",
+    "descripcion": "Cemento grado 1 para construcción",
+    "unidadMedida": "saco (50kg)",
+    "precioUnitario": 8500.00,
+    "cantidadStock": 120,
+    "proveedor": "Cemex Costa Rica",
+    "siniestroId": 1
+  },
+  {
+    "id": 2,
+    "nombre": "Pintura Impermeable",
+    "descripcion": "Pintura acrílica impermeable para exteriores",
+    "unidadMedida": "galón",
+    "precioUnitario": 15000.00,
+    "cantidadStock": 45,
+    "proveedor": "Pinturas Sur",
+    "siniestroId": 1
+  },
+  {
+    "id": 3,
+    "nombre": "Varilla de Acero #4",
+    "descripcion": "Varilla corrugada para refuerzo estructural",
+    "unidadMedida": "metro",
+    "precioUnitario": 3200.00,
+    "cantidadStock": 200,
+    "proveedor": "Aceros del Norte",
+    "siniestroId": 2
+  }
+]

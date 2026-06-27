@@ -1,0 +1,68 @@
+﻿@model SiteManager.Models.Siniestro
+@{
+    ViewData["Title"] = "Detalle del Siniestro";
+}
+
+<h2>Detalle del Siniestro #@Model.Id</h2>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Tipo de Daño</dt>
+            <dd class="col-sm-9">@Model.TipoDanio</dd>
+
+            <dt class="col-sm-3">Dirección</dt>
+            <dd class="col-sm-9">@Model.Direccion</dd>
+
+            <dt class="col-sm-3">Descripción</dt>
+            <dd class="col-sm-9">@Model.Descripcion</dd>
+
+            <dt class="col-sm-3">Estado</dt>
+            <dd class="col-sm-9"><span class="badge bg-primary">@Model.Estado</span></dd>
+
+            <dt class="col-sm-3">Cliente</dt>
+            <dd class="col-sm-9">@(Model.Cliente?.Nombre ?? "Sin asignar")</dd>
+
+            <dt class="col-sm-3">Fecha de Registro</dt>
+            <dd class="col-sm-9">@Model.FechaRegistro.ToShortDateString()</dd>
+
+            <dt class="col-sm-3">Fecha de Cierre</dt>
+            <dd class="col-sm-9">@(Model.FechaCierre?.ToShortDateString() ?? "Pendiente")</dd>
+        </dl>
+    </div>
+</div>
+
+<h4 class="mt-4">Evidencias</h4>
+@if (Model.Evidencias.Any())
+{
+    <ul class="list-group">
+        @foreach (var ev in Model.Evidencias)
+        {
+            <li class="list-group-item">@ev.Titulo - @ev.FechaSubida.ToShortDateString()</li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-muted">No hay evidencias registradas.</p>
+}
+
+<h4 class="mt-4">Cotizaciones</h4>
+@if (Model.Cotizaciones.Any())
+{
+    <ul class="list-group">
+        @foreach (var cot in Model.Cotizaciones)
+        {
+            <li class="list-group-item">@cot.Concepto - ₡@cot.CostoEstimado</li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-muted">No hay cotizaciones registradas.</p>
+}
+
+<div class="mt-4">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>

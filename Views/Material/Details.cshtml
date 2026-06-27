@@ -1,0 +1,38 @@
+﻿@model SiteManager.Models.Material
+@{
+    ViewData["Title"] = "Detalle del Material";
+}
+
+<h2>Detalle del Material #@Model.Id</h2>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Nombre</dt>
+            <dd class="col-sm-9">@Model.Nombre</dd>
+
+            <dt class="col-sm-3">Descripción</dt>
+            <dd class="col-sm-9">@Model.Descripcion</dd>
+
+            <dt class="col-sm-3">Unidad de Medida</dt>
+            <dd class="col-sm-9">@Model.UnidadMedida</dd>
+
+            <dt class="col-sm-3">Precio Unitario</dt>
+            <dd class="col-sm-9">₡@Model.PrecioUnitario.ToString("N2")</dd>
+
+            <dt class="col-sm-3">Stock</dt>
+            <dd class="col-sm-9">@Model.CantidadStock</dd>
+
+            <dt class="col-sm-3">Proveedor</dt>
+            <dd class="col-sm-9">@Model.Proveedor</dd>
+
+            <dt class="col-sm-3">Siniestro</dt>
+            <dd class="col-sm-9">@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>

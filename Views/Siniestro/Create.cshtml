@@ -1,0 +1,50 @@
+﻿@model SiteManager.Models.Siniestro
+@{
+    ViewData["Title"] = "Nuevo Siniestro";
+}
+
+<h2>Registrar Nuevo Siniestro</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="TipoDanio" class="form-label">Tipo de Daño</label>
+        <input asp-for="TipoDanio" class="form-control" />
+        <span asp-validation-for="TipoDanio" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Direccion" class="form-label">Dirección</label>
+        <input asp-for="Direccion" class="form-control" />
+        <span asp-validation-for="Direccion" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descripcion" class="form-label">Descripción</label>
+        <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Estado" class="form-label">Estado</label>
+        <select asp-for="Estado" class="form-select" asp-items="Html.GetEnumSelectList<SiteManager.Models.EstadoSiniestro>()"></select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ClienteId" class="form-label">Cliente</label>
+        <select asp-for="ClienteId" class="form-select" asp-items='new SelectList(ViewBag.Clientes, "Id", "Nombre")'>
+            <option value="">-- Seleccione un cliente --</option>
+        </select>
+        <span asp-validation-for="ClienteId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -22,9 +22,7 @@ C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\rjsmcshtml.dswa.ca
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\scopedcss\bundle\SiteManager.styles.css
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\scopedcss\projectbundle\SiteManager.bundle.scp.css
-C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\jxuaz7l379-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\27a1n2gvfm-{0}-61n19gt1b8-61n19gt1b8.gz
-C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\mrek4z27t5-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\myvzod26lj-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\3nvpe75lqw-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\p1vj3p5ytb-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -97,3 +95,12 @@ C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\refint\SiteManager
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\SiteManager.pdb
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\SiteManager.genruntimeconfig.cache
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\ref\SiteManager.dll
+C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\clientes.json
+C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\cotizaciones.json
+C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\evidencias.json
+C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\materiales.json
+C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\reportes.json
+C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\siniestros.json
+C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\usuarios.json
+C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\jxuaz7l379-{0}-ski81a89xe-ski81a89xe.gz
+C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\mrek4z27t5-{0}-7makakie90-7makakie90.gz

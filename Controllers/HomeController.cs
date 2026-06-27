@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using SiteManager.Models;
-using System.Diagnostics;
 
 namespace SiteManager.Controllers
 {
@@ -14,12 +12,6 @@ namespace SiteManager.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

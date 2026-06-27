@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "telefono": "8888-1111",
+    "correo": "juan.perez@email.com",
+    "direccion": "San José, Costa Rica"
+  },
+  {
+    "id": 2,
+    "nombre": "María",
+    "apellido": "González",
+    "telefono": "8888-2222",
+    "correo": "maria.gonzalez@email.com",
+    "direccion": "Heredia, Costa Rica"
+  }
+]

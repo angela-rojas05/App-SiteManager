@@ -1,0 +1,35 @@
+﻿@model SiteManager.Models.Material
+@{
+    ViewData["Title"] = "Eliminar Material";
+}
+
+<h2>Eliminar Material</h2>
+
+<h4>¿Está seguro de que desea eliminar este material?</h4>
+
+<div class="card border-danger mt-3">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3">Nombre</dt>
+            <dd class="col-sm-9">@Model.Nombre</dd>
+
+            <dt class="col-sm-3">Unidad</dt>
+            <dd class="col-sm-9">@Model.UnidadMedida</dd>
+
+            <dt class="col-sm-3">Precio</dt>
+            <dd class="col-sm-9">₡@Model.PrecioUnitario.ToString("N2")</dd>
+
+            <dt class="col-sm-3">Stock</dt>
+            <dd class="col-sm-9">@Model.CantidadStock</dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post" class="mt-3">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

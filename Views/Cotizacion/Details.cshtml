@@ -1,0 +1,35 @@
+﻿@model SiteManager.Models.Cotizacion
+@{
+    ViewData["Title"] = "Detalle de Cotización";
+}
+
+<h2>Detalle de Cotización #@Model.Id</h2>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Concepto</dt>
+            <dd class="col-sm-9">@Model.Concepto</dd>
+
+            <dt class="col-sm-3">Materiales</dt>
+            <dd class="col-sm-9">@Model.Materiales</dd>
+
+            <dt class="col-sm-3">Costo Estimado</dt>
+            <dd class="col-sm-9">₡@Model.CostoEstimado.ToString("N2")</dd>
+
+            <dt class="col-sm-3">Costo Final</dt>
+            <dd class="col-sm-9">@(Model.CostoFinal.HasValue ? "₡" + Model.CostoFinal.Value.ToString("N2") : "Pendiente")</dd>
+
+            <dt class="col-sm-3">Siniestro</dt>
+            <dd class="col-sm-9">@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</dd>
+
+            <dt class="col-sm-3">Fecha de Cotización</dt>
+            <dd class="col-sm-9">@Model.FechaCotizacion.ToShortDateString()</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>

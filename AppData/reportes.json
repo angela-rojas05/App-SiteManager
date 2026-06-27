@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "titulo": "Reporte de Levantamiento - Filtración Apartamento 302",
+    "contenido": "Se realizó inspección visual del área afectada. Se identificó filtración proveniente del techo del baño principal. Se recomienda reparación inmediata para evitar daños estructurales adicionales.",
+    "tipoReporte": "Levantamiento",
+    "fechaGeneracion": "2026-06-02T00:00:00",
+    "generadoPor": "Juan Rojas - Arquitecto",
+    "siniestroId": 1
+  },
+  {
+    "id": 2,
+    "titulo": "Reporte de Inspección Estructural - Grieta Muro",
+    "contenido": "Se evaluó la grieta vertical de 2 metros en el muro principal. La grieta presenta ancho variable de 2-5mm. Se recomienda reparación con inyección de epoxi y refuerzo con malla electrosoldada.",
+    "tipoReporte": "Inspección",
+    "fechaGeneracion": "2026-06-11T00:00:00",
+    "generadoPor": "María Soto - Ingeniera Civil",
+    "siniestroId": 2
+  }
+]
