@@ -1,20 +1,62 @@
 [
   {
     "id": 1,
-    "titulo": "Reporte de Levantamiento - Filtración Apartamento 302",
-    "contenido": "Se realizó inspección visual del área afectada. Se identificó filtración proveniente del techo del baño principal. Se recomienda reparación inmediata para evitar daños estructurales adicionales.",
+    "titulo": "Reporte de Levantamiento - Filtraci\u00F3n Apartamento 302",
+    "contenido": "Se realiz\u00F3 inspecci\u00F3n visual del \u00E1rea afectada. Se identific\u00F3 filtraci\u00F3n proveniente del techo del ba\u00F1o principal. Se recomienda reparaci\u00F3n inmediata para evitar da\u00F1os estructurales adicionales.",
     "tipoReporte": "Levantamiento",
     "fechaGeneracion": "2026-06-02T00:00:00",
     "generadoPor": "Juan Rojas - Arquitecto",
-    "siniestroId": 1
+    "siniestroId": 1,
+    "siniestro": {
+      "id": 1,
+      "tipoDanio": "Da\u00F1o por filtraci\u00F3n de agua",
+      "direccion": "Edificio Torres, Apartamento 302",
+      "descripcion": "Filtraci\u00F3n en techo del ba\u00F1o principal",
+      "estado": 1,
+      "fechaRegistro": "2026-06-01T00:00:00",
+      "fechaCierre": null,
+      "clienteId": 1,
+      "cliente": {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "P\u00E9rez",
+        "telefono": "8888-1111",
+        "correo": "juan.perez@email.com",
+        "direccion": "San Jos\u00E9, Costa Rica",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
   },
   {
     "id": 2,
-    "titulo": "Reporte de Inspección Estructural - Grieta Muro",
-    "contenido": "Se evaluó la grieta vertical de 2 metros en el muro principal. La grieta presenta ancho variable de 2-5mm. Se recomienda reparación con inyección de epoxi y refuerzo con malla electrosoldada.",
-    "tipoReporte": "Inspección",
+    "titulo": "Reporte de Inspecci\u00F3n Estructural - Grieta Muro",
+    "contenido": "Se evalu\u00F3 la grieta vertical de 2 metros en el muro principal. La grieta presenta ancho variable de 2-5mm. Se recomienda reparaci\u00F3n con inyecci\u00F3n de epoxi y refuerzo con malla electrosoldada.",
+    "tipoReporte": "Inspecci\u00F3n",
     "fechaGeneracion": "2026-06-11T00:00:00",
-    "generadoPor": "María Soto - Ingeniera Civil",
-    "siniestroId": 2
+    "generadoPor": "Mar\u00EDa Soto - Ingeniera Civil",
+    "siniestroId": 2,
+    "siniestro": {
+      "id": 2,
+      "tipoDanio": "Grieta estructural en muro",
+      "direccion": "Calle 5, Casa 45",
+      "descripcion": "Grieta vertical de aproximadamente 2 metros",
+      "estado": 2,
+      "fechaRegistro": "2026-06-10T00:00:00",
+      "fechaCierre": null,
+      "clienteId": 2,
+      "cliente": {
+        "id": 2,
+        "nombre": "Mar\u00EDa",
+        "apellido": "Gonz\u00E1lez",
+        "telefono": "8888-2222",
+        "correo": "maria.gonzalez@email.com",
+        "direccion": "Heredia, Costa Rica",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
   }
 ]

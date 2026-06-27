@@ -46,6 +46,7 @@ namespace SiteManager.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Evidencia evidencia)
         {
+            ModelState.Remove("Siniestro");
             if (ModelState.IsValid)
             {
                 _context.Add(evidencia);
@@ -75,6 +76,7 @@ namespace SiteManager.Controllers
             if (id != evidencia.Id)
                 return NotFound();
 
+            ModelState.Remove("Siniestro");
             if (ModelState.IsValid)
             {
                 _context.Update(evidencia);

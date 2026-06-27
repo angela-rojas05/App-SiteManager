@@ -2,22 +2,64 @@
   {
     "id": 1,
     "nombre": "Cemento Portland",
-    "descripcion": "Cemento grado 1 para construcción",
+    "descripcion": "Cemento grado 1 para construcci\u00F3n",
     "unidadMedida": "saco (50kg)",
     "precioUnitario": 8500.00,
     "cantidadStock": 120,
     "proveedor": "Cemex Costa Rica",
-    "siniestroId": 1
+    "siniestroId": 1,
+    "siniestro": {
+      "id": 1,
+      "tipoDanio": "Da\u00F1o por filtraci\u00F3n de agua",
+      "direccion": "Edificio Torres, Apartamento 302",
+      "descripcion": "Filtraci\u00F3n en techo del ba\u00F1o principal",
+      "estado": 1,
+      "fechaRegistro": "2026-06-01T00:00:00",
+      "fechaCierre": null,
+      "clienteId": 1,
+      "cliente": {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "P\u00E9rez",
+        "telefono": "8888-1111",
+        "correo": "juan.perez@email.com",
+        "direccion": "San Jos\u00E9, Costa Rica",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
   },
   {
     "id": 2,
     "nombre": "Pintura Impermeable",
-    "descripcion": "Pintura acrílica impermeable para exteriores",
-    "unidadMedida": "galón",
+    "descripcion": "Pintura acr\u00EDlica impermeable para exteriores",
+    "unidadMedida": "gal\u00F3n",
     "precioUnitario": 15000.00,
     "cantidadStock": 45,
     "proveedor": "Pinturas Sur",
-    "siniestroId": 1
+    "siniestroId": 1,
+    "siniestro": {
+      "id": 1,
+      "tipoDanio": "Da\u00F1o por filtraci\u00F3n de agua",
+      "direccion": "Edificio Torres, Apartamento 302",
+      "descripcion": "Filtraci\u00F3n en techo del ba\u00F1o principal",
+      "estado": 1,
+      "fechaRegistro": "2026-06-01T00:00:00",
+      "fechaCierre": null,
+      "clienteId": 1,
+      "cliente": {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "P\u00E9rez",
+        "telefono": "8888-1111",
+        "correo": "juan.perez@email.com",
+        "direccion": "San Jos\u00E9, Costa Rica",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
   },
   {
     "id": 3,
@@ -27,6 +69,58 @@
     "precioUnitario": 3200.00,
     "cantidadStock": 200,
     "proveedor": "Aceros del Norte",
-    "siniestroId": 2
+    "siniestroId": 2,
+    "siniestro": {
+      "id": 2,
+      "tipoDanio": "Grieta estructural en muro",
+      "direccion": "Calle 5, Casa 45",
+      "descripcion": "Grieta vertical de aproximadamente 2 metros",
+      "estado": 2,
+      "fechaRegistro": "2026-06-10T00:00:00",
+      "fechaCierre": null,
+      "clienteId": 2,
+      "cliente": {
+        "id": 2,
+        "nombre": "Mar\u00EDa",
+        "apellido": "Gonz\u00E1lez",
+        "telefono": "8888-2222",
+        "correo": "maria.gonzalez@email.com",
+        "direccion": "Heredia, Costa Rica",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
+  },
+  {
+    "id": 4,
+    "nombre": "Coppel",
+    "descripcion": "Compra de repuesto",
+    "unidadMedida": "unidad",
+    "precioUnitario": 1200,
+    "cantidadStock": 3,
+    "proveedor": "Coppel empresa",
+    "siniestroId": 1,
+    "siniestro": {
+      "id": 1,
+      "tipoDanio": "Da\u00F1o por filtraci\u00F3n de agua",
+      "direccion": "Edificio Torres, Apartamento 302",
+      "descripcion": "Filtraci\u00F3n en techo del ba\u00F1o principal",
+      "estado": 1,
+      "fechaRegistro": "2026-06-01T00:00:00",
+      "fechaCierre": null,
+      "clienteId": 1,
+      "cliente": {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "P\u00E9rez",
+        "telefono": "8888-1111",
+        "correo": "juan.perez@email.com",
+        "direccion": "San Jos\u00E9, Costa Rica",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
   }
 ]

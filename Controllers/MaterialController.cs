@@ -46,6 +46,7 @@ namespace SiteManager.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Material material)
         {
+            ModelState.Remove("Siniestro");
             if (ModelState.IsValid)
             {
                 _context.Add(material);
@@ -54,7 +55,6 @@ namespace SiteManager.Controllers
             ViewBag.Siniestros = _context.Siniestros.ToList();
             return View(material);
         }
-
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,6 +75,7 @@ namespace SiteManager.Controllers
             if (id != material.Id)
                 return NotFound();
 
+            ModelState.Remove("Siniestro");
             if (ModelState.IsValid)
             {
                 _context.Update(material);

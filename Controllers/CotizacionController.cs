@@ -46,6 +46,7 @@ namespace SiteManager.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Cotizacion cotizacion)
         {
+            ModelState.Remove("Siniestro");
             if (ModelState.IsValid)
             {
                 _context.Add(cotizacion);
@@ -75,6 +76,7 @@ namespace SiteManager.Controllers
             if (id != cotizacion.Id)
                 return NotFound();
 
+            ModelState.Remove("Siniestro");
             if (ModelState.IsValid)
             {
                 _context.Update(cotizacion);

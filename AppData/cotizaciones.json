@@ -1,20 +1,92 @@
 [
   {
     "id": 1,
-    "concepto": "Reparación de techo y pintura",
+    "concepto": "Reparaci\u00F3n de techo y pintura",
     "materiales": "Cemento, pintura impermeable, sellador",
     "costoEstimado": 350000.00,
     "costoFinal": null,
     "fechaCotizacion": "2026-06-05T00:00:00",
-    "siniestroId": 1
+    "siniestroId": 1,
+    "siniestro": {
+      "id": 1,
+      "tipoDanio": "Da\u00F1o por filtraci\u00F3n de agua",
+      "direccion": "Edificio Torres, Apartamento 302",
+      "descripcion": "Filtraci\u00F3n en techo del ba\u00F1o principal",
+      "estado": 1,
+      "fechaRegistro": "2026-06-01T00:00:00",
+      "fechaCierre": null,
+      "clienteId": 1,
+      "cliente": {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "P\u00E9rez",
+        "telefono": "8888-1111",
+        "correo": "juan.perez@email.com",
+        "direccion": "San Jos\u00E9, Costa Rica",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
   },
   {
     "id": 2,
-    "concepto": "Reparación estructural de muro",
+    "concepto": "Reparaci\u00F3n estructural de muro",
     "materiales": "Varilla, cemento, malla electrosoldada",
     "costoEstimado": 520000.00,
     "costoFinal": null,
     "fechaCotizacion": "2026-06-12T00:00:00",
-    "siniestroId": 2
+    "siniestroId": 2,
+    "siniestro": {
+      "id": 2,
+      "tipoDanio": "Grieta estructural en muro",
+      "direccion": "Calle 5, Casa 45",
+      "descripcion": "Grieta vertical de aproximadamente 2 metros",
+      "estado": 2,
+      "fechaRegistro": "2026-06-10T00:00:00",
+      "fechaCierre": null,
+      "clienteId": 2,
+      "cliente": {
+        "id": 2,
+        "nombre": "Mar\u00EDa",
+        "apellido": "Gonz\u00E1lez",
+        "telefono": "8888-2222",
+        "correo": "maria.gonzalez@email.com",
+        "direccion": "Heredia, Costa Rica",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
+  },
+  {
+    "id": 3,
+    "concepto": "Techo y pintura",
+    "materiales": "Techo, pintura, brochas, mano de obra ",
+    "costoEstimado": 25,
+    "costoFinal": 2500,
+    "fechaCotizacion": "2026-06-26T22:28:12.5913011-06:00",
+    "siniestroId": 3,
+    "siniestro": {
+      "id": 3,
+      "tipoDanio": "Montado de reja ",
+      "direccion": "Calle 179 num 120 col. San Antonio Xluch III ",
+      "descripcion": "Reja rota por choque de trailer ",
+      "estado": 0,
+      "fechaRegistro": "2026-06-26T22:26:41.7864033-06:00",
+      "fechaCierre": null,
+      "clienteId": 3,
+      "cliente": {
+        "id": 3,
+        "nombre": "Angela ",
+        "apellido": "Rojas",
+        "telefono": "\u002B529993531192",
+        "correo": "angelayaritzirojasbrito07138@gmail.com",
+        "direccion": "Calle 179 num 120 col. San Antonio Xluch III ",
+        "siniestros": []
+      },
+      "evidencias": [],
+      "cotizaciones": []
+    }
   }
 ]
