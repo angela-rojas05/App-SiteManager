@@ -1,11 +1,68 @@
 {
   "version": 4,
   "targets": {
-    "net10.0": {}
+    "net10.0": {
+      "SiteManager.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "SiteManager.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SiteManager.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SiteManager.Application.dll": {}
+        }
+      },
+      "SiteManager.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/SiteManager.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SiteManager.Domain.dll": {}
+        }
+      },
+      "SiteManager.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "SiteManager.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SiteManager.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SiteManager.Infrastructure.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "SiteManager.Application/1.0.0": {
+      "type": "project",
+      "path": "SiteManager.Application/SiteManager.Application.csproj",
+      "msbuildProject": "SiteManager.Application/SiteManager.Application.csproj"
+    },
+    "SiteManager.Domain/1.0.0": {
+      "type": "project",
+      "path": "SiteManager.Domain/SiteManager.Domain.csproj",
+      "msbuildProject": "SiteManager.Domain/SiteManager.Domain.csproj"
+    },
+    "SiteManager.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "SiteManager.Infrastructure/SiteManager.Infrastructure.csproj",
+      "msbuildProject": "SiteManager.Infrastructure/SiteManager.Infrastructure.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0": []
+    "net10.0": [
+      "SiteManager.Application >= 1.0.0",
+      "SiteManager.Domain >= 1.0.0",
+      "SiteManager.Infrastructure >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\angel\\.nuget\\packages\\": {},
@@ -39,7 +96,17 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj": {
+              "projectPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj"
+            },
+            "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj": {
+              "projectPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj"
+            },
+            "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Infrastructure\\SiteManager.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Infrastructure\\SiteManager.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
