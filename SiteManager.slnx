@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="SiteManager.Api/SiteManager.Api.csproj" Id="238e1046-e893-47c9-b242-c7f12ee8fa84" />
   <Project Path="SiteManager.Application/SiteManager.Application.csproj" Id="fb79e855-3638-4cbf-89a0-624a68ec8a51" />
   <Project Path="SiteManager.Domain/SiteManager.Domain.csproj" Id="847cc5c9-deda-4f6e-ad6e-1fa928489c92" />
   <Project Path="SiteManager.Infrastructure/SiteManager.Infrastructure.csproj" Id="03401292-bd88-4e25-b9c1-551b8626744c" />

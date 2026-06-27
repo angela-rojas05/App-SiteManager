@@ -111,4 +111,10 @@ C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\obj\Debug\net10.0\re
 C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\obj\Debug\net10.0\SiteManager.Web.pdb
 C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\obj\Debug\net10.0\SiteManager.Web.genruntimeconfig.cache
 C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\obj\Debug\net10.0\ref\SiteManager.Web.dll
-C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\bin\Debug\net10.0\Data\clientes.json
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\bin\Debug\net10.0\Data\cotizaciones.json
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\bin\Debug\net10.0\Data\evidencias.json
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\bin\Debug\net10.0\Data\materiales.json
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\bin\Debug\net10.0\Data\reportes.json
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\bin\Debug\net10.0\Data\siniestros.json
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Web\bin\Debug\net10.0\Data\usuarios.json

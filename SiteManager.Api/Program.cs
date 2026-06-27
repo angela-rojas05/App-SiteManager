@@ -1,23 +1,35 @@
+using SiteManager.Application.Services;
+using SiteManager.Domain.Interfaces;
+using SiteManager.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Ruta a la carpeta data
+var dataPath = Path.Combine(builder.Environment.ContentRootPath, "data");
+Directory.CreateDirectory(dataPath);
+
+// Repositorios
+builder.Services.AddScoped<ISiniestroRepository>(_ => new JsonSiniestroRepository(dataPath));
+builder.Services.AddScoped<IClienteRepository>(_ => new JsonClienteRepository(dataPath));
+
+// Servicios
+builder.Services.AddScoped<SiniestroService>();
+builder.Services.AddScoped<ClienteService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
