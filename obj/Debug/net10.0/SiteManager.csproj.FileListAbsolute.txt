@@ -102,5 +102,5 @@ C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\materiales
 C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\reportes.json
 C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\siniestros.json
 C:\Users\angel\source\repos\App-SiteManager\bin\Debug\net10.0\AppData\usuarios.json
-C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\jxuaz7l379-{0}-ski81a89xe-ski81a89xe.gz
 C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\mrek4z27t5-{0}-7makakie90-7makakie90.gz
+C:\Users\angel\source\repos\App-SiteManager\obj\Debug\net10.0\compressed\jxuaz7l379-{0}-jlw0xjg84f-jlw0xjg84f.gz

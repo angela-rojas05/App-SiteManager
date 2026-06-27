@@ -61,7 +61,9 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+C:\Users\angel\source\repos\App-SiteManager\wwwroot\js\site.js
 C:\Users\angel\source\repos\App-SiteManager\wwwroot\favicon.ico
+C:\Users\angel\source\repos\App-SiteManager\wwwroot\css\site.css
 C:\Users\angel\source\repos\App-SiteManager\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\angel\source\repos\App-SiteManager\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 C:\Users\angel\source\repos\App-SiteManager\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -121,5 +123,3 @@ C:\Users\angel\source\repos\App-SiteManager\wwwroot\lib\jquery\dist\jquery.slim.
 C:\Users\angel\source\repos\App-SiteManager\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\angel\source\repos\App-SiteManager\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\angel\source\repos\App-SiteManager\wwwroot\lib\jquery\LICENSE.txt
-C:\Users\angel\source\repos\App-SiteManager\wwwroot\css\site.css
-C:\Users\angel\source\repos\App-SiteManager\wwwroot\js\site.js

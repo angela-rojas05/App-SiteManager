@@ -1,76 +1,96 @@
 ﻿@{
-    ViewData["Title"] = "Inicio";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center py-5">
-    <h1 class="display-4 fw-bold text-primary">SiteManager</h1>
-    <p class="lead text-muted">Plataforma de gestión de siniestros, levantamientos y reparaciones de obra.</p>
-    <hr class="my-4" />
-    <p>Digitaliza el registro, seguimiento y administración de daños y reparaciones en un solo lugar.</p>
+<!-- KPIs -->
+<div class="sm-kpi-grid">
+    <div class="sm-kpi">
+        <div class="sm-kpi-icon" style="background:#fee2e2;color:#ef4444;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div class="sm-kpi-value">—</div>
+        <div class="sm-kpi-label">Siniestros Totales</div>
+        <div class="sm-kpi-bar" style="background:linear-gradient(90deg,#f87171,#ec4899);"></div>
+    </div>
+    <div class="sm-kpi">
+        <div class="sm-kpi-icon" style="background:#e0f2fe;color:#0284c7;">
+            <i class="fa-solid fa-circle-notch"></i>
+        </div>
+        <div class="sm-kpi-value">—</div>
+        <div class="sm-kpi-label">En Proceso</div>
+        <div class="sm-kpi-bar" style="background:linear-gradient(90deg,#38bdf8,#3b82f6);"></div>
+    </div>
+    <div class="sm-kpi">
+        <div class="sm-kpi-icon" style="background:#ccfbf1;color:#0d9488;">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="sm-kpi-value">—</div>
+        <div class="sm-kpi-label">Completados</div>
+        <div class="sm-kpi-bar" style="background:linear-gradient(90deg,#14b8a6,#059669);"></div>
+    </div>
+    <div class="sm-kpi">
+        <div class="sm-kpi-icon" style="background:#fef3c7;color:#d97706;">
+            <i class="fa-solid fa-clock"></i>
+        </div>
+        <div class="sm-kpi-value">—</div>
+        <div class="sm-kpi-label">En Levantamiento</div>
+        <div class="sm-kpi-bar" style="background:linear-gradient(90deg,#f59e0b,#f97316);"></div>
+    </div>
 </div>
 
-<div class="row text-center g-3">
-    <div class="col-md-4 col-lg-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h5 class="card-title text-primary">Siniestros</h5>
-                <p class="card-text">Registra y da seguimiento a cada caso desde el levantamiento hasta el cierre.</p>
-                <a asp-controller="Siniestro" asp-action="Index" class="btn btn-primary btn-sm">Ir a Siniestros</a>
+<!-- Módulos -->
+<div class="sm-card" style="padding:24px;">
+    <h2 style="font-size:15px;font-weight:700;margin-bottom:4px;">Módulos del sistema</h2>
+    <p style="font-size:12px;color:var(--muted-fg);margin-bottom:20px;">Acceso rápido a cada sección</p>
+    <div class="sm-module-grid">
+        <a asp-controller="Siniestro" asp-action="Index" class="sm-module-card">
+            <div class="sm-module-card-icon" style="background:#fee2e2;color:#ef4444;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
             </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-lg-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h5 class="card-title text-success">Clientes</h5>
-                <p class="card-text">Administra la información de los clientes asociados a cada siniestro.</p>
-                <a asp-controller="Cliente" asp-action="Index" class="btn btn-success btn-sm">Ir a Clientes</a>
+            <h5>Siniestros</h5>
+            <p>Registra y da seguimiento a cada caso desde el levantamiento hasta el cierre.</p>
+        </a>
+        <a asp-controller="Cliente" asp-action="Index" class="sm-module-card">
+            <div class="sm-module-card-icon" style="background:#ede9fe;color:#7c3aed;">
+                <i class="fa-solid fa-users"></i>
             </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-lg-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h5 class="card-title text-warning">Evidencias</h5>
-                <p class="card-text">Organiza fotografías, planos y documentos de respaldo de cada caso.</p>
-                <a asp-controller="Evidencia" asp-action="Index" class="btn btn-warning btn-sm">Ir a Evidencias</a>
+            <h5>Clientes</h5>
+            <p>Administra la información de los clientes asociados a cada siniestro.</p>
+        </a>
+        <a asp-controller="Evidencia" asp-action="Index" class="sm-module-card">
+            <div class="sm-module-card-icon" style="background:#e0f2fe;color:#0284c7;">
+                <i class="fa-solid fa-camera"></i>
             </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-lg-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h5 class="card-title text-info">Cotizaciones</h5>
-                <p class="card-text">Crea y consulta presupuestos y materiales asociados a cada siniestro.</p>
-                <a asp-controller="Cotizacion" asp-action="Index" class="btn btn-info btn-sm">Ir a Cotizaciones</a>
+            <h5>Evidencias</h5>
+            <p>Organiza fotografías, planos y documentos de respaldo de cada caso.</p>
+        </a>
+        <a asp-controller="Cotizacion" asp-action="Index" class="sm-module-card">
+            <div class="sm-module-card-icon" style="background:#fef3c7;color:#d97706;">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
             </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-lg-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h5 class="card-title text-secondary">Materiales</h5>
-                <p class="card-text">Gestiona el inventario de materiales de construcción y reparación.</p>
-                <a asp-controller="Material" asp-action="Index" class="btn btn-secondary btn-sm">Ir a Materiales</a>
+            <h5>Cotizaciones</h5>
+            <p>Crea y consulta presupuestos asociados a cada siniestro.</p>
+        </a>
+        <a asp-controller="Material" asp-action="Index" class="sm-module-card">
+            <div class="sm-module-card-icon" style="background:#d1fae5;color:#059669;">
+                <i class="fa-solid fa-boxes-stacked"></i>
             </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-lg-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h5 class="card-title text-success">Reportes</h5>
-                <p class="card-text">Genera y consulta reportes técnicos de levantamiento e inspección.</p>
-                <a asp-controller="Reporte" asp-action="Index" class="btn btn-success btn-sm">Ir a Reportes</a>
+            <h5>Materiales</h5>
+            <p>Gestiona el inventario de materiales de construcción y reparación.</p>
+        </a>
+        <a asp-controller="Reporte" asp-action="Index" class="sm-module-card">
+            <div class="sm-module-card-icon" style="background:#e0e7ff;color:#4f46e5;">
+                <i class="fa-solid fa-chart-bar"></i>
             </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-lg-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h5 class="card-title text-dark">Usuarios</h5>
-                <p class="card-text">Administra los usuarios del sistema: arquitectos, ingenieros y técnicos.</p>
-                <a asp-controller="Usuario" asp-action="Index" class="btn btn-dark btn-sm">Ir a Usuarios</a>
+            <h5>Reportes</h5>
+            <p>Genera y consulta reportes técnicos de levantamiento e inspección.</p>
+        </a>
+        <a asp-controller="Usuario" asp-action="Index" class="sm-module-card">
+            <div class="sm-module-card-icon" style="background:#f3f4f6;color:#6b7280;">
+                <i class="fa-solid fa-user-gear"></i>
             </div>
-        </div>
+            <h5>Usuarios</h5>
+            <p>Administra los usuarios del sistema: arquitectos, ingenieros y técnicos.</p>
+        </a>
     </div>
 </div>
