@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="AppData\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SiteManager.Application\SiteManager.Application.csproj" />
+    <ProjectReference Include="..\SiteManager.Domain\SiteManager.Domain.csproj" />
+    <ProjectReference Include="..\SiteManager.Infrastructure\SiteManager.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

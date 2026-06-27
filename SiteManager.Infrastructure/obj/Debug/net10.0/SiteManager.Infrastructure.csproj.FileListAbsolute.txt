@@ -1,0 +1,16 @@
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\bin\Debug\net10.0\SiteManager.Infrastructure.deps.json
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\bin\Debug\net10.0\SiteManager.Infrastructure.dll
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\bin\Debug\net10.0\SiteManager.Infrastructure.pdb
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\bin\Debug\net10.0\SiteManager.Domain.dll
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\bin\Debug\net10.0\SiteManager.Domain.pdb
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\SiteManager.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\SiteManager.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\SiteManager.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\SiteManager.Infrastructure.AssemblyInfo.cs
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\SiteManager.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\SiteManager.Infrastructure.sourcelink.json
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\SiteMana.F41F450E.Up2Date
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\SiteManager.Infrastructure.dll
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\refint\SiteManager.Infrastructure.dll
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\SiteManager.Infrastructure.pdb
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Infrastructure\obj\Debug\net10.0\ref\SiteManager.Infrastructure.dll

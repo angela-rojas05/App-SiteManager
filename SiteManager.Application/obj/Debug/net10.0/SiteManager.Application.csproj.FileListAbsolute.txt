@@ -1,0 +1,16 @@
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\bin\Debug\net10.0\SiteManager.Application.deps.json
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\bin\Debug\net10.0\SiteManager.Application.dll
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\bin\Debug\net10.0\SiteManager.Application.pdb
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\bin\Debug\net10.0\SiteManager.Domain.dll
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\bin\Debug\net10.0\SiteManager.Domain.pdb
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\SiteManager.Application.csproj.AssemblyReference.cache
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\SiteManager.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\SiteManager.Application.AssemblyInfoInputs.cache
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\SiteManager.Application.AssemblyInfo.cs
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\SiteManager.Application.csproj.CoreCompileInputs.cache
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\SiteManager.Application.sourcelink.json
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\SiteMana.6D74F0F1.Up2Date
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\SiteManager.Application.dll
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\refint\SiteManager.Application.dll
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\SiteManager.Application.pdb
+C:\Users\angel\source\repos\App-SiteManager\SiteManager.Application\obj\Debug\net10.0\ref\SiteManager.Application.dll
