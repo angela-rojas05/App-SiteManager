@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "TipoDanio": "Montado de reja ",
+    "Direccion": "Calle 179 num 120 col. San Antonio Xluch III ",
+    "Descripcion": "Choque por trailer ha da\u00F1ado a la reja del afectado ",
+    "Estado": 1,
+    "FechaRegistro": "2026-06-27T12:43:54.5869732-06:00",
+    "FechaCierre": null,
+    "ClienteId": 1,
+    "Cliente": null,
+    "Evidencias": [],
+    "Cotizaciones": []
+  }
+]

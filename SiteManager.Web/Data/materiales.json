@@ -1,0 +1,13 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "Cemento",
+    "Descripcion": "Costales en polvo ",
+    "UnidadMedida": "Kg",
+    "PrecioUnitario": 25,
+    "CantidadStock": 10,
+    "Proveedor": "Construrama",
+    "SiniestroId": 1,
+    "Siniestro": null
+  }
+]
