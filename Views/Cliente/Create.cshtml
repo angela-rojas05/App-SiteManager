@@ -3,46 +3,50 @@
     ViewData["Title"] = "Nuevo Cliente";
 }
 
-<h2>Registrar Nuevo Cliente</h2>
-
-<form asp-action="Create" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-    <div class="mb-3">
-        <label asp-for="Nombre" class="form-label">Nombre</label>
-        <input asp-for="Nombre" class="form-control" />
-        <span asp-validation-for="Nombre" class="text-danger"></span>
+<div class="sm-form-card">
+    <div class="sm-form-header">
+        <h2><i class="fa-solid fa-user-plus" style="color:#7c3aed;margin-right:8px;"></i>Registrar Nuevo Cliente</h2>
+        <p>Completa los datos de contacto del cliente</p>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Apellido" class="form-label">Apellido</label>
-        <input asp-for="Apellido" class="form-control" />
-        <span asp-validation-for="Apellido" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Telefono" class="form-label">Teléfono</label>
-        <input asp-for="Telefono" class="form-control" />
-        <span asp-validation-for="Telefono" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Correo" class="form-label">Correo Electrónico</label>
-        <input asp-for="Correo" class="form-control" type="email" />
-        <span asp-validation-for="Correo" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Direccion" class="form-label">Dirección</label>
-        <input asp-for="Direccion" class="form-control" />
-        <span asp-validation-for="Direccion" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <button type="submit" class="btn btn-success">Guardar</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    </div>
-</form>
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="sm-field-error" style="padding:12px 24px;"></div>
+        <div class="sm-form-body">
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="Nombre">Nombre *</label>
+                    <input asp-for="Nombre" placeholder="Nombre" />
+                    <span asp-validation-for="Nombre" class="sm-field-error"></span>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="Apellido">Apellido *</label>
+                    <input asp-for="Apellido" placeholder="Apellido" />
+                    <span asp-validation-for="Apellido" class="sm-field-error"></span>
+                </div>
+            </div>
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="Telefono">Teléfono</label>
+                    <input asp-for="Telefono" placeholder="+(506) 0000-0000" />
+                    <span asp-validation-for="Telefono" class="sm-field-error"></span>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="Correo">Correo Electrónico</label>
+                    <input asp-for="Correo" type="email" placeholder="correo@ejemplo.com" />
+                    <span asp-validation-for="Correo" class="sm-field-error"></span>
+                </div>
+            </div>
+            <div class="sm-field">
+                <label asp-for="Direccion">Dirección</label>
+                <input asp-for="Direccion" placeholder="Dirección del cliente" />
+                <span asp-validation-for="Direccion" class="sm-field-error"></span>
+            </div>
+        </div>
+        <div class="sm-form-footer">
+            <button type="submit" class="btn-sm-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+            <a asp-action="Index" class="btn-sm-ghost">Cancelar</a>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

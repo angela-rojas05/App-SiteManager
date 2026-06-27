@@ -1,68 +1,103 @@
 ﻿@model SiteManager.Models.Siniestro
 @{
     ViewData["Title"] = "Detalle del Siniestro";
+    var estadoStr = Model.Estado.ToString().ToLower();
+    var badgeClass = estadoStr switch
+    {
+        "levantamiento" => "badge-levantamiento",
+        "en proceso" => "badge-proceso",
+        "completado" => "badge-completado",
+        "cancelado" => "badge-cancelado",
+        "cerrado" => "badge-cerrado",
+        _ => "badge-proceso"
+    };
 }
 
-<h2>Detalle del Siniestro #@Model.Id</h2>
-
-<div class="card">
-    <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">Tipo de Daño</dt>
-            <dd class="col-sm-9">@Model.TipoDanio</dd>
-
-            <dt class="col-sm-3">Dirección</dt>
-            <dd class="col-sm-9">@Model.Direccion</dd>
-
-            <dt class="col-sm-3">Descripción</dt>
-            <dd class="col-sm-9">@Model.Descripcion</dd>
-
-            <dt class="col-sm-3">Estado</dt>
-            <dd class="col-sm-9"><span class="badge bg-primary">@Model.Estado</span></dd>
-
-            <dt class="col-sm-3">Cliente</dt>
-            <dd class="col-sm-9">@(Model.Cliente?.Nombre ?? "Sin asignar")</dd>
-
-            <dt class="col-sm-3">Fecha de Registro</dt>
-            <dd class="col-sm-9">@Model.FechaRegistro.ToShortDateString()</dd>
-
-            <dt class="col-sm-3">Fecha de Cierre</dt>
-            <dd class="col-sm-9">@(Model.FechaCierre?.ToShortDateString() ?? "Pendiente")</dd>
-        </dl>
+<div class="sm-detail-card">
+    <div class="sm-detail-header">
+        <h2><i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;margin-right:8px;"></i>Siniestro <span style="font-family:monospace;color:var(--muted-fg);">#@Model.Id.ToString().PadLeft(3, '0')</span></h2>
+        <span class="badge-estado @badgeClass"><span class="badge-dot"></span>@Model.Estado</span>
+    </div>
+    <div class="sm-detail-grid">
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Tipo de Daño</div>
+            <div class="sm-detail-value">@Model.TipoDanio</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Cliente</div>
+            <div class="sm-detail-value">@(Model.Cliente?.Nombre ?? "Sin asignar")</div>
+        </div>
+        <div class="sm-detail-field full">
+            <div class="sm-detail-label">Dirección</div>
+            <div class="sm-detail-value">@Model.Direccion</div>
+        </div>
+        <div class="sm-detail-field full">
+            <div class="sm-detail-label">Descripción</div>
+            <div class="sm-detail-value" style="line-height:1.6;">@Model.Descripcion</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Fecha de Registro</div>
+            <div class="sm-detail-value" style="font-family:monospace;">@Model.FechaRegistro.ToShortDateString()</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Fecha de Cierre</div>
+            <div class="sm-detail-value" style="font-family:monospace;">@(Model.FechaCierre?.ToShortDateString() ?? "Pendiente")</div>
+        </div>
+    </div>
+    <div class="sm-detail-footer">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-sm-primary"><i class="fa-solid fa-pencil"></i> Editar</a>
+        <a asp-action="Index" class="btn-sm-ghost"><i class="fa-solid fa-arrow-left"></i> Volver</a>
     </div>
 </div>
 
-<h4 class="mt-4">Evidencias</h4>
-@if (Model.Evidencias.Any())
-{
-    <ul class="list-group">
-        @foreach (var ev in Model.Evidencias)
-        {
-            <li class="list-group-item">@ev.Titulo - @ev.FechaSubida.ToShortDateString()</li>
-        }
-    </ul>
-}
-else
-{
-    <p class="text-muted">No hay evidencias registradas.</p>
-}
+<div class="sm-sub-section">
+    <h3><i class="fa-solid fa-camera" style="color:#0284c7;margin-right:6px;"></i>Evidencias</h3>
+    @if (Model.Evidencias.Any())
+    {
+        <div class="sm-card" style="overflow:hidden;">
+            <table class="sm-table">
+                <thead><tr><th>Título</th><th>Fecha</th></tr></thead>
+                <tbody>
+                    @foreach (var ev in Model.Evidencias)
+                    {
+                        <tr>
+                            <td style="font-weight:600;">@ev.Titulo</td>
+                            <td style="font-family:monospace;font-size:12px;color:var(--muted-fg);">@ev.FechaSubida.ToShortDateString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
 
-<h4 class="mt-4">Cotizaciones</h4>
-@if (Model.Cotizaciones.Any())
-{
-    <ul class="list-group">
-        @foreach (var cot in Model.Cotizaciones)
-        {
-            <li class="list-group-item">@cot.Concepto - ₡@cot.CostoEstimado</li>
-        }
-    </ul>
-}
-else
-{
-    <p class="text-muted">No hay cotizaciones registradas.</p>
-}
+        <p class="sm-empty">No hay evidencias registradas.</p>
+    }
+</div>
 
-<div class="mt-4">
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+<div class="sm-sub-section">
+    <h3><i class="fa-solid fa-file-invoice-dollar" style="color:#d97706;margin-right:6px;"></i>Cotizaciones</h3>
+    @if (Model.Cotizaciones.Any())
+    {
+        <div class="sm-card" style="overflow:hidden;">
+            <table class="sm-table">
+                <thead><tr><th>Concepto</th><th>Costo Estimado</th></tr></thead>
+                <tbody>
+                    @foreach (var cot in Model.Cotizaciones)
+                    {
+                        <tr>
+                            <td style="font-weight:600;">@cot.Concepto</td>
+                            <td style="font-family:monospace;">₡@cot.CostoEstimado.ToString("N2")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+
+        <p class="sm-empty">No hay cotizaciones registradas.</p>
+    }
 </div>

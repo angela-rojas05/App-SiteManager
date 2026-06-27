@@ -3,54 +3,55 @@
     ViewData["Title"] = "Editar Siniestro";
 }
 
-<h2>Editar Siniestro #@Model.Id</h2>
-
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
-    <input type="hidden" asp-for="FechaRegistro" />
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-    <div class="mb-3">
-        <label asp-for="TipoDanio" class="form-label">Tipo de Daño</label>
-        <input asp-for="TipoDanio" class="form-control" />
-        <span asp-validation-for="TipoDanio" class="text-danger"></span>
+<div class="sm-form-card">
+    <div class="sm-form-header">
+        <h2><i class="fa-solid fa-pencil" style="color:#d97706;margin-right:8px;"></i>Editar Siniestro <span style="font-family:monospace;color:var(--muted-fg);">#@Model.Id.ToString().PadLeft(3, '0')</span></h2>
+        <p>Modifica los datos del expediente</p>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Direccion" class="form-label">Dirección</label>
-        <input asp-for="Direccion" class="form-control" />
-        <span asp-validation-for="Direccion" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Descripcion" class="form-label">Descripción</label>
-        <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
-        <span asp-validation-for="Descripcion" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Estado" class="form-label">Estado</label>
-        <select asp-for="Estado" class="form-select" asp-items="Html.GetEnumSelectList<SiteManager.Models.EstadoSiniestro>()"></select>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="ClienteId" class="form-label">Cliente</label>
-        <select asp-for="ClienteId" class="form-select" asp-items='new SelectList(ViewBag.Clientes, "Id", "Nombre")'>
-            <option value="">-- Seleccione un cliente --</option>
-        </select>
-        <span asp-validation-for="ClienteId" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="FechaCierre" class="form-label">Fecha de Cierre</label>
-        <input asp-for="FechaCierre" class="form-control" type="date" />
-    </div>
-
-    <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    </div>
-</form>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="FechaRegistro" />
+        <div asp-validation-summary="ModelOnly" class="sm-field-error" style="padding:12px 24px;"></div>
+        <div class="sm-form-body">
+            <div class="sm-field">
+                <label asp-for="TipoDanio">Tipo de Daño *</label>
+                <input asp-for="TipoDanio" />
+                <span asp-validation-for="TipoDanio" class="sm-field-error"></span>
+            </div>
+            <div class="sm-field">
+                <label asp-for="Direccion">Dirección *</label>
+                <input asp-for="Direccion" />
+                <span asp-validation-for="Direccion" class="sm-field-error"></span>
+            </div>
+            <div class="sm-field">
+                <label asp-for="Descripcion">Descripción</label>
+                <textarea asp-for="Descripcion"></textarea>
+                <span asp-validation-for="Descripcion" class="sm-field-error"></span>
+            </div>
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="Estado">Estado</label>
+                    <select asp-for="Estado" asp-items="Html.GetEnumSelectList<SiteManager.Models.EstadoSiniestro>()"></select>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="ClienteId">Cliente</label>
+                    <select asp-for="ClienteId" asp-items='new SelectList(ViewBag.Clientes, "Id", "Nombre")'>
+                        <option value="">— Seleccione un cliente —</option>
+                    </select>
+                    <span asp-validation-for="ClienteId" class="sm-field-error"></span>
+                </div>
+            </div>
+            <div class="sm-field">
+                <label asp-for="FechaCierre">Fecha de Cierre</label>
+                <input asp-for="FechaCierre" type="date" />
+            </div>
+        </div>
+        <div class="sm-form-footer">
+            <button type="submit" class="btn-sm-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar Cambios</button>
+            <a asp-action="Index" class="btn-sm-ghost">Cancelar</a>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

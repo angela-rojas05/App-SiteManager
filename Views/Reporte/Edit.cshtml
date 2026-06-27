@@ -3,50 +3,54 @@
     ViewData["Title"] = "Editar Reporte";
 }
 
-<h2>Editar Reporte #@Model.Id</h2>
-
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
-    <input type="hidden" asp-for="FechaGeneracion" />
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-    <div class="mb-3">
-        <label asp-for="Titulo" class="form-label">Título</label>
-        <input asp-for="Titulo" class="form-control" />
-        <span asp-validation-for="Titulo" class="text-danger"></span>
+<div class="sm-form-card">
+    <div class="sm-form-header">
+        <h2><i class="fa-solid fa-pencil" style="color:#d97706;margin-right:8px;"></i>Editar Reporte <span style="font-family:monospace;color:var(--muted-fg);">#@Model.Id.ToString().PadLeft(3, '0')</span></h2>
+        <p>Modifica el contenido del reporte</p>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Contenido" class="form-label">Contenido</label>
-        <textarea asp-for="Contenido" class="form-control" rows="5"></textarea>
-        <span asp-validation-for="Contenido" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="TipoReporte" class="form-label">Tipo de Reporte</label>
-        <input asp-for="TipoReporte" class="form-control" />
-        <span asp-validation-for="TipoReporte" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="GeneradoPor" class="form-label">Generado Por</label>
-        <input asp-for="GeneradoPor" class="form-control" />
-        <span asp-validation-for="GeneradoPor" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="SiniestroId" class="form-label">Siniestro</label>
-        <select asp-for="SiniestroId" class="form-select" asp-items='new SelectList(ViewBag.Siniestros, "Id", "TipoDanio")'>
-            <option value="">-- Seleccione un siniestro --</option>
-        </select>
-        <span asp-validation-for="SiniestroId" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <button type="submit" class="btn btn-success">Guardar Cambios</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    </div>
-</form>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="FechaGeneracion" />
+        <div asp-validation-summary="ModelOnly" class="sm-field-error" style="padding:12px 24px;"></div>
+        <div class="sm-form-body">
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="Titulo">Título *</label>
+                    <input asp-for="Titulo" />
+                    <span asp-validation-for="Titulo" class="sm-field-error"></span>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="TipoReporte">Tipo de Reporte *</label>
+                    <input asp-for="TipoReporte" />
+                    <span asp-validation-for="TipoReporte" class="sm-field-error"></span>
+                </div>
+            </div>
+            <div class="sm-field">
+                <label asp-for="Contenido">Contenido *</label>
+                <textarea asp-for="Contenido" style="min-height:140px;"></textarea>
+                <span asp-validation-for="Contenido" class="sm-field-error"></span>
+            </div>
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="GeneradoPor">Generado Por *</label>
+                    <input asp-for="GeneradoPor" />
+                    <span asp-validation-for="GeneradoPor" class="sm-field-error"></span>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="SiniestroId">Siniestro</label>
+                    <select asp-for="SiniestroId" asp-items='new SelectList(ViewBag.Siniestros, "Id", "TipoDanio")'>
+                        <option value="">— Seleccione un siniestro —</option>
+                    </select>
+                    <span asp-validation-for="SiniestroId" class="sm-field-error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="sm-form-footer">
+            <button type="submit" class="btn-sm-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar Cambios</button>
+            <a asp-action="Index" class="btn-sm-ghost">Cancelar</a>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

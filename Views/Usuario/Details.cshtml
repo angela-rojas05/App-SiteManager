@@ -3,40 +3,49 @@
     ViewData["Title"] = "Detalle del Usuario";
 }
 
-<h2>Detalle del Usuario #@Model.Id</h2>
-
-<div class="card">
-    <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">Nombre de Usuario</dt>
-            <dd class="col-sm-9">@Model.NombreUsuario</dd>
-
-            <dt class="col-sm-3">Nombre Completo</dt>
-            <dd class="col-sm-9">@Model.NombreCompleto</dd>
-
-            <dt class="col-sm-3">Correo</dt>
-            <dd class="col-sm-9">@Model.Correo</dd>
-
-            <dt class="col-sm-3">Teléfono</dt>
-            <dd class="col-sm-9">@Model.Telefono</dd>
-
-            <dt class="col-sm-3">Rol</dt>
-            <dd class="col-sm-9"><span class="badge bg-secondary">@Model.Rol</span></dd>
-
-            <dt class="col-sm-3">Estado</dt>
-            <dd class="col-sm-9">
-                <span class="badge bg-@(Model.Activo ? "success" : "danger")">
-                    @(Model.Activo ? "Activo" : "Inactivo")
-                </span>
-            </dd>
-
-            <dt class="col-sm-3">Fecha de Registro</dt>
-            <dd class="col-sm-9">@Model.FechaRegistro.ToShortDateString()</dd>
-        </dl>
+<div class="sm-detail-card">
+    <div class="sm-detail-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0d9488,#059669);display:flex;align-items:center;justify-content:center;color:white;font-size:14px;font-weight:700;">
+                @Model.NombreCompleto.Substring(0, 1).ToUpper()
+            </div>
+            <h2 style="margin:0;">@Model.NombreCompleto</h2>
+        </div>
+        @if (Model.Activo)
+        {
+            <span class="badge-estado badge-completado"><span class="badge-dot"></span>Activo</span>
+        }
+        else
+        {
+            <span class="badge-estado badge-cancelado"><span class="badge-dot"></span>Inactivo</span>
+        }
     </div>
-</div>
-
-<div class="mt-4">
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    <div class="sm-detail-grid">
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Nombre de Usuario</div>
+            <div class="sm-detail-value" style="font-family:monospace;">@Model.NombreUsuario</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Rol</div>
+            <div class="sm-detail-value">
+                <span style="font-size:11px;background:#f3f4f6;color:#374151;padding:3px 10px;border-radius:6px;font-weight:600;">@Model.Rol</span>
+            </div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Correo</div>
+            <div class="sm-detail-value">@Model.Correo</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Teléfono</div>
+            <div class="sm-detail-value">@Model.Telefono</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Fecha de Registro</div>
+            <div class="sm-detail-value" style="font-family:monospace;">@Model.FechaRegistro.ToShortDateString()</div>
+        </div>
+    </div>
+    <div class="sm-detail-footer">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-sm-primary"><i class="fa-solid fa-pencil"></i> Editar</a>
+        <a asp-action="Index" class="btn-sm-ghost"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+    </div>
 </div>

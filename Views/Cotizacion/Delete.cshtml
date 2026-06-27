@@ -3,30 +3,22 @@
     ViewData["Title"] = "Eliminar Cotización";
 }
 
-<h2>Eliminar Cotización</h2>
-
-<h4>¿Está seguro de que desea eliminar esta cotización?</h4>
-
-<div class="card border-danger mt-3">
-    <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">ID</dt>
-            <dd class="col-sm-9">@Model.Id</dd>
-
-            <dt class="col-sm-3">Concepto</dt>
-            <dd class="col-sm-9">@Model.Concepto</dd>
-
-            <dt class="col-sm-3">Costo Estimado</dt>
-            <dd class="col-sm-9">₡@Model.CostoEstimado.ToString("N2")</dd>
-
-            <dt class="col-sm-3">Siniestro</dt>
-            <dd class="col-sm-9">@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</dd>
-        </dl>
+<div class="sm-delete-card">
+    <div class="sm-delete-header">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h2>¿Eliminar esta cotización?</h2>
+    </div>
+    <div class="sm-delete-body">
+        <div class="sm-delete-row"><span>ID</span><span style="font-family:monospace;">#@Model.Id.ToString().PadLeft(3, '0')</span></div>
+        <div class="sm-delete-row"><span>Concepto</span><span>@Model.Concepto</span></div>
+        <div class="sm-delete-row"><span>Costo Estimado</span><span style="font-family:monospace;">₡@Model.CostoEstimado.ToString("N2")</span></div>
+        <div class="sm-delete-row"><span>Siniestro</span><span>@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</span></div>
+    </div>
+    <div class="sm-delete-footer">
+        <form asp-action="Delete" method="post" style="display:inline;">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn-sm-danger"><i class="fa-solid fa-trash"></i> Eliminar</button>
+        </form>
+        <a asp-action="Index" class="btn-sm-ghost">Cancelar</a>
     </div>
 </div>
-
-<form asp-action="Delete" method="post" class="mt-3">
-    <input type="hidden" asp-for="Id" />
-    <button type="submit" class="btn btn-danger">Eliminar</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-</form>

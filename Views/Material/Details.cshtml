@@ -1,38 +1,45 @@
 ﻿@model SiteManager.Models.Material
 @{
     ViewData["Title"] = "Detalle del Material";
+    var stockColor = Model.CantidadStock <= 5 ? "#ef4444" : Model.CantidadStock <= 20 ? "#d97706" : "#059669";
 }
 
-<h2>Detalle del Material #@Model.Id</h2>
-
-<div class="card">
-    <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">Nombre</dt>
-            <dd class="col-sm-9">@Model.Nombre</dd>
-
-            <dt class="col-sm-3">Descripción</dt>
-            <dd class="col-sm-9">@Model.Descripcion</dd>
-
-            <dt class="col-sm-3">Unidad de Medida</dt>
-            <dd class="col-sm-9">@Model.UnidadMedida</dd>
-
-            <dt class="col-sm-3">Precio Unitario</dt>
-            <dd class="col-sm-9">₡@Model.PrecioUnitario.ToString("N2")</dd>
-
-            <dt class="col-sm-3">Stock</dt>
-            <dd class="col-sm-9">@Model.CantidadStock</dd>
-
-            <dt class="col-sm-3">Proveedor</dt>
-            <dd class="col-sm-9">@Model.Proveedor</dd>
-
-            <dt class="col-sm-3">Siniestro</dt>
-            <dd class="col-sm-9">@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</dd>
-        </dl>
+<div class="sm-detail-card">
+    <div class="sm-detail-header">
+        <h2><i class="fa-solid fa-boxes-stacked" style="color:#059669;margin-right:8px;"></i>Material <span style="font-family:monospace;color:var(--muted-fg);">#@Model.Id.ToString().PadLeft(3, '0')</span></h2>
     </div>
-</div>
-
-<div class="mt-4">
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    <div class="sm-detail-grid">
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Nombre</div>
+            <div class="sm-detail-value">@Model.Nombre</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Unidad de Medida</div>
+            <div class="sm-detail-value">@Model.UnidadMedida</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Precio Unitario</div>
+            <div class="sm-detail-value" style="font-family:monospace;font-size:15px;font-weight:700;">₡@Model.PrecioUnitario.ToString("N2")</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Stock</div>
+            <div class="sm-detail-value" style="font-size:18px;font-weight:800;color:@stockColor;">@Model.CantidadStock</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Proveedor</div>
+            <div class="sm-detail-value">@Model.Proveedor</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Siniestro</div>
+            <div class="sm-detail-value">@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</div>
+        </div>
+        <div class="sm-detail-field full">
+            <div class="sm-detail-label">Descripción</div>
+            <div class="sm-detail-value" style="line-height:1.6;">@Model.Descripcion</div>
+        </div>
+    </div>
+    <div class="sm-detail-footer">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-sm-primary"><i class="fa-solid fa-pencil"></i> Editar</a>
+        <a asp-action="Index" class="btn-sm-ghost"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+    </div>
 </div>

@@ -590,3 +590,295 @@ body {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+/* ── Formularios ── */
+.sm-form-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    max-width: 640px;
+}
+
+.sm-form-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+    .sm-form-header h2 {
+        font-size: 15px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .sm-form-header p {
+        font-size: 12px;
+        color: var(--muted-fg);
+        margin: 4px 0 0;
+    }
+
+.sm-form-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sm-form-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+}
+
+.sm-field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--foreground);
+    margin-bottom: 6px;
+}
+
+.sm-field input,
+.sm-field textarea,
+.sm-field select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: inherit;
+    background: #f9fafb;
+    color: var(--foreground);
+    outline: none;
+    transition: all 0.15s;
+    appearance: none;
+}
+
+    .sm-field input:focus,
+    .sm-field textarea:focus,
+    .sm-field select:focus {
+        border-color: var(--primary);
+        background: white;
+        box-shadow: 0 0 0 3px rgba(13,148,136,0.1);
+    }
+
+.sm-field textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.sm-field-error {
+    font-size: 11px;
+    color: #ef4444;
+    margin-top: 4px;
+}
+
+.sm-field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.sm-checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .sm-checkbox-field input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        border-radius: 5px;
+        accent-color: var(--primary);
+        cursor: pointer;
+    }
+
+    .sm-checkbox-field label {
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: none;
+        letter-spacing: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+
+/* ── Details card ── */
+.sm-detail-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    max-width: 760px;
+}
+
+.sm-detail-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .sm-detail-header h2 {
+        font-size: 15px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+.sm-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.sm-detail-field {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+    .sm-detail-field:nth-child(odd) {
+        border-right: 1px solid var(--border);
+    }
+
+    .sm-detail-field.full {
+        grid-column: 1 / -1;
+    }
+
+.sm-detail-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted-fg);
+    margin-bottom: 4px;
+}
+
+.sm-detail-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.sm-detail-footer {
+    padding: 16px 24px;
+    display: flex;
+    gap: 10px;
+}
+
+/* ── Delete card ── */
+.sm-delete-card {
+    background: white;
+    border: 1px solid #fecaca;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    max-width: 560px;
+}
+
+.sm-delete-header {
+    padding: 16px 24px;
+    background: #fee2e2;
+    border-bottom: 1px solid #fecaca;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .sm-delete-header i {
+        color: #ef4444;
+        font-size: 16px;
+    }
+
+    .sm-delete-header h2 {
+        font-size: 14px;
+        font-weight: 700;
+        color: #b91c1c;
+        margin: 0;
+    }
+
+.sm-delete-body {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sm-delete-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+    .sm-delete-row:last-child {
+        border-bottom: none;
+    }
+
+    .sm-delete-row span:first-child {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--muted-fg);
+    }
+
+    .sm-delete-row span:last-child {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--foreground);
+    }
+
+.sm-delete-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+}
+
+.btn-sm-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 12px;
+    background: #ef4444;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+}
+
+    .btn-sm-danger:hover {
+        background: #dc2626;
+        color: white;
+        text-decoration: none;
+    }
+
+/* ── Sub-tables (en Details) ── */
+.sm-sub-section {
+    margin-top: 24px;
+    max-width: 760px;
+}
+
+    .sm-sub-section h3 {
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: var(--foreground);
+    }
+
+.sm-empty {
+    font-size: 13px;
+    color: var(--muted-fg);
+    padding: 16px;
+    background: var(--muted);
+    border-radius: 10px;
+}

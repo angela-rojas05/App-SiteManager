@@ -3,33 +3,35 @@
     ViewData["Title"] = "Detalle del Reporte";
 }
 
-<h2>Detalle del Reporte #@Model.Id</h2>
-
-<div class="card">
-    <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">Título</dt>
-            <dd class="col-sm-9">@Model.Titulo</dd>
-
-            <dt class="col-sm-3">Tipo</dt>
-            <dd class="col-sm-9"><span class="badge bg-info">@Model.TipoReporte</span></dd>
-
-            <dt class="col-sm-3">Contenido</dt>
-            <dd class="col-sm-9">@Model.Contenido</dd>
-
-            <dt class="col-sm-3">Siniestro</dt>
-            <dd class="col-sm-9">@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</dd>
-
-            <dt class="col-sm-3">Generado Por</dt>
-            <dd class="col-sm-9">@Model.GeneradoPor</dd>
-
-            <dt class="col-sm-3">Fecha de Generación</dt>
-            <dd class="col-sm-9">@Model.FechaGeneracion.ToShortDateString()</dd>
-        </dl>
+<div class="sm-detail-card">
+    <div class="sm-detail-header">
+        <h2><i class="fa-solid fa-chart-bar" style="color:#4f46e5;margin-right:8px;"></i>Reporte <span style="font-family:monospace;color:var(--muted-fg);">#@Model.Id.ToString().PadLeft(3, '0')</span></h2>
+        <span style="font-size:11px;background:#e0e7ff;color:#4f46e5;padding:4px 12px;border-radius:6px;font-weight:600;">@Model.TipoReporte</span>
     </div>
-</div>
-
-<div class="mt-4">
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    <div class="sm-detail-grid">
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Título</div>
+            <div class="sm-detail-value">@Model.Titulo</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Generado Por</div>
+            <div class="sm-detail-value">@Model.GeneradoPor</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Siniestro</div>
+            <div class="sm-detail-value">@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Fecha de Generación</div>
+            <div class="sm-detail-value" style="font-family:monospace;">@Model.FechaGeneracion.ToShortDateString()</div>
+        </div>
+        <div class="sm-detail-field full">
+            <div class="sm-detail-label">Contenido</div>
+            <div class="sm-detail-value" style="line-height:1.7;white-space:pre-line;">@Model.Contenido</div>
+        </div>
+    </div>
+    <div class="sm-detail-footer">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-sm-primary"><i class="fa-solid fa-pencil"></i> Editar</a>
+        <a asp-action="Index" class="btn-sm-ghost"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+    </div>
 </div>

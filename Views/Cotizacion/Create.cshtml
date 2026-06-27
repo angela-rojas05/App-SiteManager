@@ -3,48 +3,50 @@
     ViewData["Title"] = "Nueva Cotización";
 }
 
-<h2>Registrar Nueva Cotización</h2>
-
-<form asp-action="Create" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-    <div class="mb-3">
-        <label asp-for="Concepto" class="form-label">Concepto</label>
-        <input asp-for="Concepto" class="form-control" />
-        <span asp-validation-for="Concepto" class="text-danger"></span>
+<div class="sm-form-card">
+    <div class="sm-form-header">
+        <h2><i class="fa-solid fa-file-invoice-dollar" style="color:#d97706;margin-right:8px;"></i>Registrar Nueva Cotización</h2>
+        <p>Ingresa los costos estimados para el expediente</p>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Materiales" class="form-label">Materiales</label>
-        <textarea asp-for="Materiales" class="form-control" rows="3"></textarea>
-        <span asp-validation-for="Materiales" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="CostoEstimado" class="form-label">Costo Estimado</label>
-        <input asp-for="CostoEstimado" class="form-control" type="number" step="0.01" />
-        <span asp-validation-for="CostoEstimado" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="CostoFinal" class="form-label">Costo Final</label>
-        <input asp-for="CostoFinal" class="form-control" type="number" step="0.01" />
-        <span asp-validation-for="CostoFinal" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="SiniestroId" class="form-label">Siniestro</label>
-        <select asp-for="SiniestroId" class="form-select" asp-items='new SelectList(ViewBag.Siniestros, "Id", "TipoDanio")'>
-            <option value="">-- Seleccione un siniestro --</option>
-        </select>
-        <span asp-validation-for="SiniestroId" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <button type="submit" class="btn btn-info">Guardar</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    </div>
-</form>
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="sm-field-error" style="padding:12px 24px;"></div>
+        <div class="sm-form-body">
+            <div class="sm-field">
+                <label asp-for="Concepto">Concepto *</label>
+                <input asp-for="Concepto" placeholder="Ej. Reparación de techo y pintura" />
+                <span asp-validation-for="Concepto" class="sm-field-error"></span>
+            </div>
+            <div class="sm-field">
+                <label asp-for="Materiales">Materiales</label>
+                <textarea asp-for="Materiales" placeholder="Lista los materiales necesarios..."></textarea>
+                <span asp-validation-for="Materiales" class="sm-field-error"></span>
+            </div>
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="CostoEstimado">Costo Estimado (₡) *</label>
+                    <input asp-for="CostoEstimado" type="number" step="0.01" placeholder="0.00" />
+                    <span asp-validation-for="CostoEstimado" class="sm-field-error"></span>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="CostoFinal">Costo Final (₡)</label>
+                    <input asp-for="CostoFinal" type="number" step="0.01" placeholder="0.00 (opcional)" />
+                    <span asp-validation-for="CostoFinal" class="sm-field-error"></span>
+                </div>
+            </div>
+            <div class="sm-field">
+                <label asp-for="SiniestroId">Siniestro *</label>
+                <select asp-for="SiniestroId" asp-items='new SelectList(ViewBag.Siniestros, "Id", "TipoDanio")'>
+                    <option value="">— Seleccione un siniestro —</option>
+                </select>
+                <span asp-validation-for="SiniestroId" class="sm-field-error"></span>
+            </div>
+        </div>
+        <div class="sm-form-footer">
+            <button type="submit" class="btn-sm-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+            <a asp-action="Index" class="btn-sm-ghost">Cancelar</a>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -3,57 +3,58 @@
     ViewData["Title"] = "Detalle del Cliente";
 }
 
-<h2>Detalle del Cliente #@Model.Id</h2>
-
-<div class="card">
-    <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">Nombre</dt>
-            <dd class="col-sm-9">@Model.Nombre @Model.Apellido</dd>
-
-            <dt class="col-sm-3">Teléfono</dt>
-            <dd class="col-sm-9">@Model.Telefono</dd>
-
-            <dt class="col-sm-3">Correo</dt>
-            <dd class="col-sm-9">@Model.Correo</dd>
-
-            <dt class="col-sm-3">Dirección</dt>
-            <dd class="col-sm-9">@Model.Direccion</dd>
-        </dl>
+<div class="sm-detail-card">
+    <div class="sm-detail-header">
+        <h2><i class="fa-solid fa-users" style="color:#7c3aed;margin-right:8px;"></i>Cliente <span style="font-family:monospace;color:var(--muted-fg);">#@Model.Id.ToString().PadLeft(3, '0')</span></h2>
+    </div>
+    <div class="sm-detail-grid">
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Nombre</div>
+            <div class="sm-detail-value">@Model.Nombre @Model.Apellido</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Teléfono</div>
+            <div class="sm-detail-value">@Model.Telefono</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Correo</div>
+            <div class="sm-detail-value">@Model.Correo</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Dirección</div>
+            <div class="sm-detail-value">@Model.Direccion</div>
+        </div>
+    </div>
+    <div class="sm-detail-footer">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-sm-primary"><i class="fa-solid fa-pencil"></i> Editar</a>
+        <a asp-action="Index" class="btn-sm-ghost"><i class="fa-solid fa-arrow-left"></i> Volver</a>
     </div>
 </div>
 
-<h4 class="mt-4">Siniestros Asociados</h4>
-@if (Model.Siniestros.Any())
-{
-    <table class="table table-sm table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Tipo de Daño</th>
-                <th>Dirección</th>
-                <th>Estado</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var sin in Model.Siniestros)
-            {
-                <tr>
-                    <td>@sin.Id</td>
-                    <td>@sin.TipoDanio</td>
-                    <td>@sin.Direccion</td>
-                    <td>@sin.Estado</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p class="text-muted">No hay siniestros asociados.</p>
-}
+<div class="sm-sub-section">
+    <h3><i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;margin-right:6px;"></i>Siniestros Asociados</h3>
+    @if (Model.Siniestros.Any())
+    {
+        <div class="sm-card" style="overflow:hidden;">
+            <table class="sm-table">
+                <thead><tr><th>ID</th><th>Tipo de Daño</th><th>Dirección</th><th>Estado</th></tr></thead>
+                <tbody>
+                    @foreach (var sin in Model.Siniestros)
+                    {
+                        <tr>
+                            <td><span class="id-badge">#@sin.Id.ToString().PadLeft(3, '0')</span></td>
+                            <td style="font-weight:600;">@sin.TipoDanio</td>
+                            <td style="font-size:12px;color:var(--muted-fg);">@sin.Direccion</td>
+                            <td><span style="font-size:11px;background:var(--muted);color:var(--muted-fg);padding:3px 8px;border-radius:6px;">@sin.Estado</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
 
-<div class="mt-4">
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+        <p class="sm-empty">No hay siniestros asociados.</p>
+    }
 </div>

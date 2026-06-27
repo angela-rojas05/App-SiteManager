@@ -3,30 +3,34 @@
     ViewData["Title"] = "Detalle de Evidencia";
 }
 
-<h2>Detalle de Evidencia #@Model.Id</h2>
-
-<div class="card">
-    <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">Título</dt>
-            <dd class="col-sm-9">@Model.Titulo</dd>
-
-            <dt class="col-sm-3">Descripción</dt>
-            <dd class="col-sm-9">@Model.Descripcion</dd>
-
-            <dt class="col-sm-3">Ruta del Archivo</dt>
-            <dd class="col-sm-9">@Model.RutaArchivo</dd>
-
-            <dt class="col-sm-3">Siniestro</dt>
-            <dd class="col-sm-9">@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</dd>
-
-            <dt class="col-sm-3">Fecha de Subida</dt>
-            <dd class="col-sm-9">@Model.FechaSubida.ToShortDateString()</dd>
-        </dl>
+<div class="sm-detail-card">
+    <div class="sm-detail-header">
+        <h2><i class="fa-solid fa-camera" style="color:#0284c7;margin-right:8px;"></i>Evidencia <span style="font-family:monospace;color:var(--muted-fg);">#@Model.Id.ToString().PadLeft(3, '0')</span></h2>
     </div>
-</div>
-
-<div class="mt-4">
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    <div class="sm-detail-grid">
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Título</div>
+            <div class="sm-detail-value">@Model.Titulo</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Siniestro</div>
+            <div class="sm-detail-value">@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</div>
+        </div>
+        <div class="sm-detail-field full">
+            <div class="sm-detail-label">Descripción</div>
+            <div class="sm-detail-value" style="line-height:1.6;">@Model.Descripcion</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Ruta del Archivo</div>
+            <div class="sm-detail-value" style="font-family:monospace;font-size:12px;">@Model.RutaArchivo</div>
+        </div>
+        <div class="sm-detail-field">
+            <div class="sm-detail-label">Fecha de Subida</div>
+            <div class="sm-detail-value" style="font-family:monospace;">@Model.FechaSubida.ToShortDateString()</div>
+        </div>
+    </div>
+    <div class="sm-detail-footer">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-sm-primary"><i class="fa-solid fa-pencil"></i> Editar</a>
+        <a asp-action="Index" class="btn-sm-ghost"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+    </div>
 </div>

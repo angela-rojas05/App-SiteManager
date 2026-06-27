@@ -3,56 +3,58 @@
     ViewData["Title"] = "Nuevo Usuario";
 }
 
-<h2>Registrar Nuevo Usuario</h2>
-
-<form asp-action="Create" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-    <div class="mb-3">
-        <label asp-for="NombreUsuario" class="form-label">Nombre de Usuario</label>
-        <input asp-for="NombreUsuario" class="form-control" />
-        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+<div class="sm-form-card">
+    <div class="sm-form-header">
+        <h2><i class="fa-solid fa-user-gear" style="color:#6b7280;margin-right:8px;"></i>Registrar Nuevo Usuario</h2>
+        <p>Crea una cuenta para un técnico, arquitecto o supervisor</p>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Contrasena" class="form-label">Contraseña</label>
-        <input asp-for="Contrasena" class="form-control" type="password" />
-        <span asp-validation-for="Contrasena" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="NombreCompleto" class="form-label">Nombre Completo</label>
-        <input asp-for="NombreCompleto" class="form-control" />
-        <span asp-validation-for="NombreCompleto" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Correo" class="form-label">Correo Electrónico</label>
-        <input asp-for="Correo" class="form-control" type="email" />
-        <span asp-validation-for="Correo" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Telefono" class="form-label">Teléfono</label>
-        <input asp-for="Telefono" class="form-control" />
-        <span asp-validation-for="Telefono" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Rol" class="form-label">Rol</label>
-        <select asp-for="Rol" class="form-select" asp-items="Html.GetEnumSelectList<SiteManager.Models.RolUsuario>()"></select>
-    </div>
-
-    <div class="mb-3 form-check">
-        <input asp-for="Activo" class="form-check-input" type="checkbox" checked />
-        <label asp-for="Activo" class="form-check-label">Usuario Activo</label>
-    </div>
-
-    <div class="mb-3">
-        <button type="submit" class="btn btn-dark">Guardar</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    </div>
-</form>
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="sm-field-error" style="padding:12px 24px;"></div>
+        <div class="sm-form-body">
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="NombreUsuario">Nombre de Usuario *</label>
+                    <input asp-for="NombreUsuario" placeholder="usuario123" />
+                    <span asp-validation-for="NombreUsuario" class="sm-field-error"></span>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="Contrasena">Contraseña *</label>
+                    <input asp-for="Contrasena" type="password" placeholder="••••••••" />
+                    <span asp-validation-for="Contrasena" class="sm-field-error"></span>
+                </div>
+            </div>
+            <div class="sm-field">
+                <label asp-for="NombreCompleto">Nombre Completo *</label>
+                <input asp-for="NombreCompleto" placeholder="Nombre y apellidos" />
+                <span asp-validation-for="NombreCompleto" class="sm-field-error"></span>
+            </div>
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="Correo">Correo Electrónico</label>
+                    <input asp-for="Correo" type="email" placeholder="correo@ejemplo.com" />
+                    <span asp-validation-for="Correo" class="sm-field-error"></span>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="Telefono">Teléfono</label>
+                    <input asp-for="Telefono" placeholder="+(506) 0000-0000" />
+                    <span asp-validation-for="Telefono" class="sm-field-error"></span>
+                </div>
+            </div>
+            <div class="sm-field">
+                <label asp-for="Rol">Rol</label>
+                <select asp-for="Rol" asp-items="Html.GetEnumSelectList<SiteManager.Models.RolUsuario>()"></select>
+            </div>
+            <div class="sm-checkbox-field">
+                <input asp-for="Activo" type="checkbox" checked />
+                <label asp-for="Activo">Usuario Activo</label>
+            </div>
+        </div>
+        <div class="sm-form-footer">
+            <button type="submit" class="btn-sm-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+            <a asp-action="Index" class="btn-sm-ghost">Cancelar</a>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -1,35 +1,55 @@
 ﻿@model SiteManager.Models.Cotizacion
 @{
-    ViewData["Title"] = "Detalle de Cotización";
+    ViewData["Title"] = "Editar Cotización";
 }
 
-<h2>Detalle de Cotización #@Model.Id</h2>
-
-<div class="card">
-    <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">Concepto</dt>
-            <dd class="col-sm-9">@Model.Concepto</dd>
-
-            <dt class="col-sm-3">Materiales</dt>
-            <dd class="col-sm-9">@Model.Materiales</dd>
-
-            <dt class="col-sm-3">Costo Estimado</dt>
-            <dd class="col-sm-9">₡@Model.CostoEstimado.ToString("N2")</dd>
-
-            <dt class="col-sm-3">Costo Final</dt>
-            <dd class="col-sm-9">@(Model.CostoFinal.HasValue ? "₡" + Model.CostoFinal.Value.ToString("N2") : "Pendiente")</dd>
-
-            <dt class="col-sm-3">Siniestro</dt>
-            <dd class="col-sm-9">@(Model.Siniestro?.TipoDanio ?? "Sin asignar")</dd>
-
-            <dt class="col-sm-3">Fecha de Cotización</dt>
-            <dd class="col-sm-9">@Model.FechaCotizacion.ToShortDateString()</dd>
-        </dl>
+<div class="sm-form-card">
+    <div class="sm-form-header">
+        <h2><i class="fa-solid fa-pencil" style="color:#d97706;margin-right:8px;"></i>Editar Cotización <span style="font-family:monospace;color:var(--muted-fg);">#@Model.Id.ToString().PadLeft(3, '0')</span></h2>
+        <p>Modifica los datos de la cotización</p>
     </div>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="FechaCotizacion" />
+        <div asp-validation-summary="ModelOnly" class="sm-field-error" style="padding:12px 24px;"></div>
+        <div class="sm-form-body">
+            <div class="sm-field">
+                <label asp-for="Concepto">Concepto *</label>
+                <input asp-for="Concepto" />
+                <span asp-validation-for="Concepto" class="sm-field-error"></span>
+            </div>
+            <div class="sm-field">
+                <label asp-for="Materiales">Materiales</label>
+                <textarea asp-for="Materiales"></textarea>
+                <span asp-validation-for="Materiales" class="sm-field-error"></span>
+            </div>
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="CostoEstimado">Costo Estimado (₡) *</label>
+                    <input asp-for="CostoEstimado" type="number" step="0.01" />
+                    <span asp-validation-for="CostoEstimado" class="sm-field-error"></span>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="CostoFinal">Costo Final (₡)</label>
+                    <input asp-for="CostoFinal" type="number" step="0.01" />
+                    <span asp-validation-for="CostoFinal" class="sm-field-error"></span>
+                </div>
+            </div>
+            <div class="sm-field">
+                <label asp-for="SiniestroId">Siniestro</label>
+                <select asp-for="SiniestroId" asp-items='new SelectList(ViewBag.Siniestros, "Id", "TipoDanio")'>
+                    <option value="">— Seleccione un siniestro —</option>
+                </select>
+                <span asp-validation-for="SiniestroId" class="sm-field-error"></span>
+            </div>
+        </div>
+        <div class="sm-form-footer">
+            <button type="submit" class="btn-sm-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar Cambios</button>
+            <a asp-action="Index" class="btn-sm-ghost">Cancelar</a>
+        </div>
+    </form>
 </div>
 
-<div class="mt-4">
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Volver</a>
-</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

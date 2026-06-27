@@ -3,47 +3,51 @@
     ViewData["Title"] = "Editar Cliente";
 }
 
-<h2>Editar Cliente #@Model.Id</h2>
-
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-    <div class="mb-3">
-        <label asp-for="Nombre" class="form-label">Nombre</label>
-        <input asp-for="Nombre" class="form-control" />
-        <span asp-validation-for="Nombre" class="text-danger"></span>
+<div class="sm-form-card">
+    <div class="sm-form-header">
+        <h2><i class="fa-solid fa-pencil" style="color:#d97706;margin-right:8px;"></i>Editar Cliente <span style="font-family:monospace;color:var(--muted-fg);">#@Model.Id.ToString().PadLeft(3, '0')</span></h2>
+        <p>Modifica los datos del cliente</p>
     </div>
-
-    <div class="mb-3">
-        <label asp-for="Apellido" class="form-label">Apellido</label>
-        <input asp-for="Apellido" class="form-control" />
-        <span asp-validation-for="Apellido" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Telefono" class="form-label">Teléfono</label>
-        <input asp-for="Telefono" class="form-control" />
-        <span asp-validation-for="Telefono" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Correo" class="form-label">Correo Electrónico</label>
-        <input asp-for="Correo" class="form-control" type="email" />
-        <span asp-validation-for="Correo" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="Direccion" class="form-label">Dirección</label>
-        <input asp-for="Direccion" class="form-control" />
-        <span asp-validation-for="Direccion" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <button type="submit" class="btn btn-success">Guardar Cambios</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    </div>
-</form>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="sm-field-error" style="padding:12px 24px;"></div>
+        <div class="sm-form-body">
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="Nombre">Nombre *</label>
+                    <input asp-for="Nombre" />
+                    <span asp-validation-for="Nombre" class="sm-field-error"></span>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="Apellido">Apellido *</label>
+                    <input asp-for="Apellido" />
+                    <span asp-validation-for="Apellido" class="sm-field-error"></span>
+                </div>
+            </div>
+            <div class="sm-field-row">
+                <div class="sm-field">
+                    <label asp-for="Telefono">Teléfono</label>
+                    <input asp-for="Telefono" />
+                    <span asp-validation-for="Telefono" class="sm-field-error"></span>
+                </div>
+                <div class="sm-field">
+                    <label asp-for="Correo">Correo Electrónico</label>
+                    <input asp-for="Correo" type="email" />
+                    <span asp-validation-for="Correo" class="sm-field-error"></span>
+                </div>
+            </div>
+            <div class="sm-field">
+                <label asp-for="Direccion">Dirección</label>
+                <input asp-for="Direccion" />
+                <span asp-validation-for="Direccion" class="sm-field-error"></span>
+            </div>
+        </div>
+        <div class="sm-form-footer">
+            <button type="submit" class="btn-sm-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar Cambios</button>
+            <a asp-action="Index" class="btn-sm-ghost">Cancelar</a>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
