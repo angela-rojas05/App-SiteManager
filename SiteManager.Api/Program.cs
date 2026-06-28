@@ -1,6 +1,8 @@
 using SiteManager.Application.Services;
 using SiteManager.Domain.Interfaces;
+using SiteManager.Infrastructure.Observers;
 using SiteManager.Infrastructure.Repositories;
+using Swashbuckle.AspNetCore.Annotations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,9 @@ Directory.CreateDirectory(dataPath);
 // Repositorios
 builder.Services.AddScoped<ISiniestroRepository>(_ => new JsonSiniestroRepository(dataPath));
 builder.Services.AddScoped<IClienteRepository>(_ => new JsonClienteRepository(dataPath));
+
+// Observers
+builder.Services.AddScoped<ISiniestroObserver, EmailObserver>();
 
 // Servicios
 builder.Services.AddScoped<SiniestroService>();

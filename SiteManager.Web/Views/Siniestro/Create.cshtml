@@ -1,4 +1,4 @@
-﻿@model SiteManager.Models.Siniestro
+﻿@model SiteManager.Domain.Models.Siniestro
 @{
     ViewData["Title"] = "Nuevo Siniestro";
 }
@@ -31,7 +31,7 @@
             <div class="sm-field-row">
                 <div class="sm-field">
                     <label asp-for="Estado">Estado</label>
-                    <select asp-for="Estado" asp-items="Html.GetEnumSelectList<SiteManager.Models.EstadoSiniestro>()"></select>
+                    <select asp-for="Estado" asp-items="Html.GetEnumSelectList<SiteManager.Domain.Models.EstadoSiniestro>()"></select>
                 </div>
                 <div class="sm-field">
                     <label asp-for="ClienteId">Cliente *</label>

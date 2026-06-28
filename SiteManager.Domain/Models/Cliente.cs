@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
-namespace SiteManager.Models
+namespace SiteManager.Domain.Models
 {
     public class Cliente
     {

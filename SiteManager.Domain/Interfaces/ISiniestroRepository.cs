@@ -1,5 +1,4 @@
-﻿using SiteManager.Models;
-
+﻿using SiteManager.Domain.Models;
 namespace SiteManager.Domain.Interfaces
 {
     public interface ISiniestroRepository

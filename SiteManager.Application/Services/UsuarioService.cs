@@ -1,5 +1,5 @@
 ﻿using SiteManager.Domain.Interfaces;
-using SiteManager.Models;
+using SiteManager.Domain.Models;
 
 namespace SiteManager.Application.Services
 {

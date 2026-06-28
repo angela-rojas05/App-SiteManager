@@ -1,4 +1,4 @@
-﻿@model SiteManager.Models.Usuario
+﻿@model SiteManager.Domain.Models.Usuario
 @{
     ViewData["Title"] = "Editar Usuario";
 }
@@ -44,7 +44,7 @@
             </div>
             <div class="sm-field">
                 <label asp-for="Rol">Rol</label>
-                <select asp-for="Rol" asp-items="Html.GetEnumSelectList<SiteManager.Models.RolUsuario>()"></select>
+                <select asp-for="Rol" asp-items="Html.GetEnumSelectList<SiteManager.Domain.Models.RolUsuario>()"></select>
             </div>
             <div class="sm-checkbox-field">
                 <input asp-for="Activo" type="checkbox" />

@@ -1,5 +1,6 @@
 using SiteManager.Application.Services;
 using SiteManager.Domain.Interfaces;
+using SiteManager.Infrastructure.Observers;
 using SiteManager.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,9 @@ builder.Services.AddScoped<ICotizacionRepository>(_ => new JsonCotizacionReposit
 builder.Services.AddScoped<IMaterialRepository>(_ => new JsonMaterialRepository(dataPath));
 builder.Services.AddScoped<IReporteRepository>(_ => new JsonReporteRepository(dataPath));
 builder.Services.AddScoped<IUsuarioRepository>(_ => new JsonUsuarioRepository(dataPath));
+
+// Observers
+builder.Services.AddScoped<ISiniestroObserver, EmailObserver>();
 
 // Servicios
 builder.Services.AddScoped<ClienteService>();
@@ -45,4 +49,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run(); 
+app.Run();

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SiteManager.Application.Services;
-using SiteManager.Models;
+using SiteManager.Domain.Models;
 
 namespace SiteManager.Controllers
 {

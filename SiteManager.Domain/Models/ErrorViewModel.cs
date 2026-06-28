@@ -1,4 +1,4 @@
-namespace SiteManager.Models
+namespace SiteManager.Web.Models
 {
     public class ErrorViewModel
     {

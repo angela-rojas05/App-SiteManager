@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using SiteManager.Models;
+using SiteManager.Domain.Models;
 
 namespace SiteManager.Data
 {
