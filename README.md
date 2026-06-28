@@ -241,13 +241,38 @@ dotnet run
 
 # Capturas de pantalla
 
-> Aquí se agregarán capturas representativas de la aplicación.
 
-- Página de inicio.
-- Gestión de siniestros.
-- Registro de clientes.
-- Gestión de evidencias.
-- Cotizaciones.
+![Desarrollo](./img/Main1.png)
+
+![Desarrollo](./img/Main2.png)
+
+![Desarrollo](./img/Main3.png)
+
+![Desarrollo](./img/Main4.png)
+
+![Desarrollo](./img/Main5.png)
+
+![Desarrollo](./img/Main6.png)
+
+![Desarrollo](./img/Main7.png)
+
+![Desarrollo](./img/Main8.png)
+
+![Desarrollo](./img/Main9.png)
+
+![Desarrollo](./img/Main10.png)
+
+![Desarrollo](./img/Main11.png)
+
+![Desarrollo](./img/Main12.png)
+
+![Desarrollo](./img/Main13.png)
+
+![Desarrollo](./img/Main14.png)
+
+![Desarrollo](./img/Main15.png)
+
+
 
 ---
 
