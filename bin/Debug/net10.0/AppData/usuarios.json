@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "nombreUsuario": "admin",
+    "contrasena": "admin123",
+    "nombreCompleto": "Administrador del Sistema",
+    "correo": "admin@sitemanager.com",
+    "telefono": "8888-0000",
+    "rol": 0,
+    "activo": true,
+    "fechaRegistro": "2026-01-01T00:00:00"
+  },
+  {
+    "id": 2,
+    "nombreUsuario": "jrojas",
+    "contrasena": "password123",
+    "nombreCompleto": "Juan Rojas - Arquitecto",
+    "correo": "jrojas@sitemanager.com",
+    "telefono": "8888-3333",
+    "rol": 1,
+    "activo": true,
+    "fechaRegistro": "2026-03-15T00:00:00"
+  },
+  {
+    "id": 3,
+    "nombreUsuario": "Ela",
+    "contrasena": "elacienta",
+    "nombreCompleto": "Ela Rojas",
+    "correo": "angelagames12345@hotmail.com",
+    "telefono": "\u002B529993531191",
+    "rol": 4,
+    "activo": true,
+    "fechaRegistro": "2026-06-26T22:30:09.7327165-06:00"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "Id": 1,
+    "Concepto": "Techo y pintura",
+    "Materiales": "Cemento, pintura, brochas, rodillo ",
+    "CostoEstimado": 3500,
+    "CostoFinal": 2500,
+    "FechaCotizacion": "2026-06-27T12:54:20.4888072-06:00",
+    "SiniestroId": 1,
+    "Siniestro": null
+  }
+]

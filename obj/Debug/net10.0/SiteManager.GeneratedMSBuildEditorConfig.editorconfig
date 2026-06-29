@@ -1,0 +1,196 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SiteManager
+build_property.RootNamespace = SiteManager
+build_property.ProjectDir = C:\Users\angel\source\repos\App-SiteManager\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 10.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\angel\source\repos\App-SiteManager
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Cliente/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXENsaWVudGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Cliente/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXENsaWVudGVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Cliente/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXENsaWVudGVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Cliente/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXENsaWVudGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Cliente/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXENsaWVudGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Cotizacion/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXENvdGl6YWNpb25cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Cotizacion/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXENvdGl6YWNpb25cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Cotizacion/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXENvdGl6YWNpb25cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Cotizacion/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXENvdGl6YWNpb25cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Cotizacion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXENvdGl6YWNpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Evidencia/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXEV2aWRlbmNpYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Evidencia/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXEV2aWRlbmNpYVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Evidencia/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXEV2aWRlbmNpYVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Evidencia/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXEV2aWRlbmNpYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Evidencia/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXEV2aWRlbmNpYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXEhvbWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXEhvbWVcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Material/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXE1hdGVyaWFsXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Material/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXE1hdGVyaWFsXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Material/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXE1hdGVyaWFsXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Material/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXE1hdGVyaWFsXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Material/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXE1hdGVyaWFsXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Reporte/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFJlcG9ydGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Reporte/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFJlcG9ydGVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Reporte/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFJlcG9ydGVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Reporte/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFJlcG9ydGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Reporte/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFJlcG9ydGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFNoYXJlZFxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFNoYXJlZFxfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/SiniestroView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFNpbmllc3Ryb1ZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Siniestro/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFNpbmllc3Ryb1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Siniestro/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFNpbmllc3Ryb1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Siniestro/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFNpbmllc3Ryb1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Siniestro/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFNpbmllc3Ryb1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Siniestro/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFNpbmllc3Ryb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Usuario/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFVzdWFyaW9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Usuario/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFVzdWFyaW9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Usuario/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFVzdWFyaW9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Usuario/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFVzdWFyaW9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Usuario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFVzdWFyaW9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/angel/source/repos/App-SiteManager/SiteManager.Web/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2l0ZU1hbmFnZXIuV2ViXFZpZXdzXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-7m4wdj0nxv
