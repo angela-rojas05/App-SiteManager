@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SiteManager.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+441882ce1f2d878fb494dc4463f831a46af33c7f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5c7eb0ec69080c8ab892d1740cd5a524562fc2b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SiteManager.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SiteManager.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
