@@ -95,6 +95,20 @@ Durante esta evolución se realizaron las siguientes mejoras:
 
 ---
 
+## 👷‍♂️ Arquitectura C4 (Contexto, Contenedores, Componentes)
+
+La documentación completa de arquitectura del sistema, versionada como código (Mermaid), muestra de manera visual como esta estructurado y como es el flujo del sistema dependiendo de quien lo ese usando y para qué. Esta información está en [`/diagramas`](./diagramas):
+
+Para entender la estructura técnica de **SiteManager**, la documentación está organizada siguiendo el estándar del **Modelo C4**:
+
+| Nivel | Archivo | Descripción |
+|-------|---------|-------------|
+| 🌐 **C1 — Contexto** | [`C4nivel1.md`](./diagramas/C4nivel1.md) | Quién usa SiteManager y cómo interactúa con el ecosistema y sistemas externos. |
+| 📦 **C2 — Contenedores** | [`C4nivel2.md`](./diagramas/C4nivel2.md) | Las aplicaciones principales de la solución (`Web`, `Api`, `Application`, `Domain`, `Infrastructure`, `JSON`) y sus flujos de comunicación. |
+| 🧩 **C3 — Componentes** | [`C4nivel3.md`](./diagramas/C4nivel3.md) | Estructura interna de los contenedores: controladores de `Web`, servicios de `Application`, contratos de `Domain` y repositorios/observers de `Infrastructure`. |
+
+---
+
 # 📚 Decisión Arquitectónica (ADR-05)
 
 ## Integración de Patrones de Diseño GOF
