@@ -115,3 +115,15 @@ builder.Services.AddScoped<ISiniestroRepository>(_ => new JsonSiniestroRepositor
 // Se registraría:
 builder.Services.AddScoped<ISiniestroRepository, EfSiniestroRepository>();
 ```
+
+---
+
+## Cláusula de IA
+
+Para la elaboración de este documento se utilizó inteligencia artificial (Claude, de Anthropic) como herramienta de apoyo en las siguientes tareas:
+
+- Identificación de deudas técnicas concretas con base en el código desarrollado durante el cuatrimestre
+- Apoyo para describir cada deuda en lenguaje claro.
+- Sugerencias sobre las propuestas de solución técnica para cada deuda identificada
+
+Todo el contenido fue revisado y validado por la autora para asegurar que refleja correctamente las decisiones y el contexto real de SiteManager.
