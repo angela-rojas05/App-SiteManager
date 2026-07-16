@@ -50,3 +50,46 @@ var dataPath = builder.Configuration["DataSettings:DataPath"]
 Así, cambiar la ruta sería tan simple como editar un archivo de configuración, sin necesidad de tocar ni recompilar el código.
 
 ---
+
+## Deuda 2 — El sistema de notificaciones no envía nada real
+
+**¿Qué es?**
+En el ADR-05 se implementó el patrón Observer para que cada vez que un siniestro cambie de estado, el sistema notifique a los involucrados. Sin embargo, la notificación actual solo imprime un mensaje en la consola de la computadora donde corre la aplicación:
+
+```csharp
+Console.WriteLine($"[Email] Notificación enviada — Siniestro #{siniestro.Id}: {siniestro.TipoDanio} cambió a estado {siniestro.Estado}.");
+```
+
+Nadie externo recibe nada — ni un correo, ni un mensaje, ni ningún tipo de aviso real.
+
+**¿Por qué existe?**
+El objetivo principal del ADR-05 era demostrar que el patrón Observer estaba bien aplicado a nivel de estructura y arquitectura. Conectar un servicio real de envío de correos requería configurar herramientas externas que estaban fuera del alcance de las entregas del cuatrimestre, así que se dejó como simulación para no bloquear el avance.
+
+**¿Qué pasa si no se resuelve?**
+Si el sistema llegara a usarse en un entorno real, los técnicos y supervisores nunca sabrían cuándo un siniestro cambia de estado. El patrón Observer estaría bien construido por dentro, pero completamente inútil por fuera. El valor de haberlo implementado quedaría en cero desde el punto de vista del usuario.
+
+**¿Cómo se resolvería?**
+La solución sería reemplazar el `Console.WriteLine` por una implementación real que use un servicio de envío de correos como SendGrid o el cliente SMTP de .NET. El patrón Observer ya está en su lugar — lo único que cambiaría es lo que hace el observer por dentro cuando recibe la notificación. No habría que tocar ni los controladores ni los servicios, solo la clase `EmailObserver` en la capa de Infrastructure:
+
+```csharp
+public class EmailObserver : ISiniestroObserver
+{
+    private readonly IEmailService _emailService;
+
+    public EmailObserver(IEmailService emailService)
+    {
+        _emailService = emailService;
+    }
+
+    public void Notificar(Siniestro siniestro)
+    {
+        _emailService.Enviar(
+            destinatario: "supervisor@sitemanager.com",
+            asunto: $"Siniestro #{siniestro.Id} actualizado",
+            cuerpo: $"El siniestro '{siniestro.TipoDanio}' cambió a estado {siniestro.Estado}."
+        );
+    }
+}
+```
+
+---
