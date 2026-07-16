@@ -434,6 +434,22 @@ Entre las mejoras contempladas para futuras versiones se encuentran:
 
 ---
 
+
+# ⚠️ Deuda Técnica Identificada
+
+Durante esta evolución se identificaron deudas técnicas concretas que surgieron por decisiones tomadas para cumplir fechas de entrega. Estas están documentadas formalmente en el **ADR-06**.
+
+| Deuda | Tipo | Impacto |
+|-------|------|---------|
+| Ruta de la carpeta `data/` escrita fija en `Program.cs` | Infraestructura | Si el proyecto cambia de servidor o ambiente, hay que modificar el código directamente |
+| `EmailObserver` solo imprime en consola, no envía notificaciones reales | Accidental | El patrón Observer está bien estructurado pero es inútil en producción |
+| Almacenamiento en JSON en lugar de MySQL | Deliberada | Crece con cada módulo nuevo y no soporta relaciones reales entre entidades |
+
+Para más detalle sobre cada deuda, su causa y propuesta de solución, consultar el archivo `Documentation/ADR-06-Angela-Rojas.md`.
+
+---
+
+
 # 👩‍💻 Información del proyecto
 
 **Proyecto:** SiteManager
