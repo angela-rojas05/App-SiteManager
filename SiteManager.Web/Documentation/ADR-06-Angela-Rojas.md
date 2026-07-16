@@ -93,3 +93,25 @@ public class EmailObserver : ISiniestroObserver
 ```
 
 ---
+
+## Deuda 3 — Almacenamiento en archivos JSON en lugar de base de datos real
+
+**¿Qué es?**
+SiteManager actualmente guarda toda su información en archivos JSON dentro de una carpeta `data/`. Hay un archivo por cada módulo del sistema: `siniestros.json`, `clientes.json`, `evidencias.json`, `cotizaciones.json`, `materiales.json`, `reportes.json` y `usuarios.json`. Cada vez que se agrega o modifica un registro, el sistema lee el archivo completo, hace el cambio en memoria y lo vuelve a escribir entero en disco.
+
+**¿Por qué existe?**
+Fue una decisión consciente documentada desde el ADR-02. Se eligió JSON como almacenamiento temporal para poder avanzar en la arquitectura y la lógica del sistema sin depender de tener MySQL configurado. La intención siempre fue migrar a MySQL con Entity Framework Core una vez que el resto del sistema estuviera estable.
+
+**¿Qué pasa si no se resuelve?**
+Conforme el sistema crece y se agregan más módulos y registros, los problemas se vuelven más evidentes. No hay relaciones reales entre entidades — si se elimina un cliente, sus siniestros no se eliminan automáticamente. No hay transacciones, no hay control de concurrencia, y si dos usuarios modifican el mismo archivo al mismo tiempo los datos pueden corromperse. Además, cada módulo nuevo que se agrega requiere crear y mantener un nuevo archivo JSON y un nuevo repositorio manual, lo que aumenta la deuda con cada entrega.
+
+**¿Cómo se resolvería?**
+La solución está ya definida en el ADR-02: migrar a MySQL usando Entity Framework Core. El patrón Repository implementado en el ADR-05 hace que esta migración sea limpia — solo habría que crear nuevas implementaciones de cada interfaz que usen EF Core en lugar de JSON, y registrarlas en `Program.cs`. Los controladores, servicios y modelos no necesitarían cambiar.
+
+```csharp
+// En lugar de:
+builder.Services.AddScoped<ISiniestroRepository>(_ => new JsonSiniestroRepository(dataPath));
+
+// Se registraría:
+builder.Services.AddScoped<ISiniestroRepository, EfSiniestroRepository>();
+```
