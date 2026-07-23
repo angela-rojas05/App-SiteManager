@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zNhb51XLsG4=",
+  "dgSpecHash": "buwLj4dHvw0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Api\\SiteManager.Api.csproj",
+  "projectFilePath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Api\\SiteManager.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\angel\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.9\\microsoft.aspnetcore.openapi.10.0.9.nupkg.sha512",
     "C:\\Users\\angel\\.nuget\\packages\\microsoft.extensions.apidescription.server\\10.0.0\\microsoft.extensions.apidescription.server.10.0.0.nupkg.sha512",

@@ -596,11 +596,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Api\\SiteManager.Api.csproj",
+      "projectUniqueName": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Api\\SiteManager.Api.csproj",
       "projectName": "SiteManager.Api",
-      "projectPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Api\\SiteManager.Api.csproj",
+      "projectPath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Api\\SiteManager.Api.csproj",
       "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Api\\obj\\",
+      "outputPath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -622,14 +622,14 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj": {
-              "projectPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj"
+            "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj": {
+              "projectPath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj"
             },
-            "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj": {
-              "projectPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj"
+            "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj": {
+              "projectPath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj"
             },
-            "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Infrastructure\\SiteManager.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Infrastructure\\SiteManager.Infrastructure.csproj"
+            "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Infrastructure\\SiteManager.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Infrastructure\\SiteManager.Infrastructure.csproj"
             }
           }
         }
@@ -683,7 +683,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj": {}
+    "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj": {
+    "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj",
+        "projectUniqueName": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj",
         "projectName": "SiteManager.Application",
-        "projectPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj",
+        "projectPath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Application\\SiteManager.Application.csproj",
         "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Application\\obj\\",
+        "outputPath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj": {
-                "projectPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj"
+              "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj": {
+                "projectPath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj"
               }
             }
           }
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -349,14 +349,14 @@
         }
       }
     },
-    "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj": {
+    "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj",
         "projectName": "SiteManager.Domain",
-        "projectPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj",
+        "projectPath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Domain\\SiteManager.Domain.csproj",
         "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\angel\\source\\repos\\App-SiteManager\\SiteManager.Domain\\obj\\",
+        "outputPath": "C:\\Users\\angel\\OneDrive\\Desktop\\SiteManagerU3\\App-SiteManager\\SiteManager.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -412,7 +412,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

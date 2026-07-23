@@ -7,5 +7,14 @@
     "Correo": "angela.rojas@tecdesoftware.edu.mx",
     "Direccion": "Calle 179 num 120 col. San Antonio Xluch III ",
     "Siniestros": []
+  },
+  {
+    "Id": 2,
+    "Nombre": "Juan",
+    "Apellido": "Lara",
+    "Telefono": "9991231167",
+    "Correo": "juanperez@gmail.com",
+    "Direccion": "calle 34  num 544 col. Emiliano Zapata ",
+    "Siniestros": []
   }
 ]

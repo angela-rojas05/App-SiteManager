@@ -4,4 +4,5 @@
   <Project Path="SiteManager.Domain/SiteManager.Domain.csproj" Id="847cc5c9-deda-4f6e-ad6e-1fa928489c92" />
   <Project Path="SiteManager.Infrastructure/SiteManager.Infrastructure.csproj" Id="03401292-bd88-4e25-b9c1-551b8626744c" />
   <Project Path="SiteManager.Web/SiteManager.Web.csproj" />
+  <Project Path="SiteManager.xUnit/SiteManager.xUnit.csproj" Id="0e976ece-c828-4b02-88ea-c7518a445232" />
 </Solution>
