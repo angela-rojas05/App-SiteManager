@@ -1,4 +1,4 @@
-# 🎯 SiteManager - Rama GOF
+# 🎯 SiteManager - Rama pipeline-ci 
 
 > **Cuarta evolución del proyecto SiteManager.**
 
@@ -78,6 +78,17 @@ Los principales objetivos de esta etapa fueron:
 - Facilitar futuras modificaciones del sistema.
 - Preparar la aplicación para futuras evoluciones del mecanismo de persistencia.
 - Aplicar patrones GOF adecuados al contexto del proyecto.
+
+---
+
+# 🚦 Evidencia de Integración Continua (Pipeline)
+
+Para verificar que los cambios no afectan el correcto funcionamiento del sistema, se configuró un workflow en GitHub Actions que compila la solución y ejecuta el conjunto completo de pruebas automáticamente.
+
+- **Check en Verde:** [Ver Pull Request / CI Check](https://github.com/angela-rojas05/App-SiteManager/actions) 
+- **Estado del Pipeline:** ![CI Workflow](https://github.com/angela-rojas05/App-SiteManager/actions/workflows/ci.yml/badge.svg)
+
+> **Nota:** La integración de este check garantiza que ningún cambio con errores de compilación o fallos en las pruebas sea fusionado a la rama principal.
 
 ---
 
