@@ -1,0 +1,29 @@
+name: CI - SiteManager
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restaurar dependencias
+        run: dotnet restore SiteManager.slnx
+
+      - name: Compilar solución
+        run: dotnet build SiteManager.slnx --no-restore
+
+      - name: Ejecutar pruebas
+        run: dotnet test SiteManager.slnx --no-build --verbosity normal
