@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SiteManager.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a17aa00d027a896c9c044782d491d1f536cbe610")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+623a954ee36b62f77cc52373a4f820755e1c82f4")]
 [assembly: System.Reflection.AssemblyProductAttribute("SiteManager.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SiteManager.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
