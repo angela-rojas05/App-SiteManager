@@ -20,9 +20,18 @@
             <div class="sm-detail-label">Descripción</div>
             <div class="sm-detail-value" style="line-height:1.6;">@Model.Descripcion</div>
         </div>
-        <div class="sm-detail-field">
-            <div class="sm-detail-label">Ruta del Archivo</div>
-            <div class="sm-detail-value" style="font-family:monospace;font-size:12px;">@Model.RutaArchivo</div>
+        <div class="sm-detail-field full">
+            <div class="sm-detail-label">Imagen</div>
+            @if (!string.IsNullOrEmpty(Model.RutaArchivo))
+            {
+                <div class="sm-detail-value">
+                    <img src="@Model.RutaArchivo" alt="@Model.Titulo" style="max-width:320px;border-radius:8px;border:1px solid var(--border);" />
+                </div>
+            }
+            else
+            {
+                <div class="sm-detail-value" style="color:var(--muted-fg);">Sin imagen</div>
+            }
         </div>
         <div class="sm-detail-field">
             <div class="sm-detail-label">Fecha de Subida</div>

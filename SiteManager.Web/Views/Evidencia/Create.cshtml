@@ -6,9 +6,9 @@
 <div class="sm-form-card">
     <div class="sm-form-header">
         <h2><i class="fa-solid fa-camera" style="color:#0284c7;margin-right:8px;"></i>Registrar Nueva Evidencia</h2>
-        <p>Añade documentación fotográfica o archivos al expediente</p>
+        <p>Añade documentación fotográfica al expediente</p>
     </div>
-    <form asp-action="Create" method="post">
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="sm-field-error" style="padding:12px 24px;"></div>
         <div class="sm-form-body">
             <div class="sm-field">
@@ -22,9 +22,10 @@
                 <span asp-validation-for="Descripcion" class="sm-field-error"></span>
             </div>
             <div class="sm-field">
-                <label asp-for="RutaArchivo">Ruta del Archivo</label>
-                <input asp-for="RutaArchivo" placeholder="/uploads/imagen.jpg" />
-                <span asp-validation-for="RutaArchivo" class="sm-field-error"></span>
+                <label for="imagenFile">Imagen *</label>
+                <input type="file" id="imagenFile" name="imagenFile" accept=".jpg,.jpeg,.png,.webp" />
+                <span class="sm-field-error">@Html.ValidationMessage("imagenFile")</span>
+                <small style="color:var(--muted-fg);">Formatos permitidos: JPG, PNG, WEBP. Máximo 5 MB.</small>
             </div>
             <div class="sm-field">
                 <label asp-for="SiniestroId">Siniestro *</label>

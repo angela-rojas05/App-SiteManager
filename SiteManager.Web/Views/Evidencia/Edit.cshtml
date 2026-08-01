@@ -8,9 +8,10 @@
         <h2><i class="fa-solid fa-pencil" style="color:#d97706;margin-right:8px;"></i>Editar Evidencia <span style="font-family:monospace;color:var(--muted-fg);">#@Model.Id.ToString().PadLeft(3, '0')</span></h2>
         <p>Modifica los datos de la evidencia</p>
     </div>
-    <form asp-action="Edit" method="post">
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
         <input type="hidden" asp-for="Id" />
         <input type="hidden" asp-for="FechaSubida" />
+        <input type="hidden" asp-for="RutaArchivo" />
         <div asp-validation-summary="ModelOnly" class="sm-field-error" style="padding:12px 24px;"></div>
         <div class="sm-form-body">
             <div class="sm-field">
@@ -24,9 +25,17 @@
                 <span asp-validation-for="Descripcion" class="sm-field-error"></span>
             </div>
             <div class="sm-field">
-                <label asp-for="RutaArchivo">Ruta del Archivo</label>
-                <input asp-for="RutaArchivo" />
-                <span asp-validation-for="RutaArchivo" class="sm-field-error"></span>
+                @if (!string.IsNullOrEmpty(Model.RutaArchivo))
+                {
+                    <label>Imagen actual</label>
+                    <div style="margin-bottom:10px;">
+                        <img src="@Model.RutaArchivo" alt="@Model.Titulo" style="max-width:220px;border-radius:8px;border:1px solid var(--border);" />
+                    </div>
+                }
+                <label for="imagenFile">Reemplazar imagen</label>
+                <input type="file" id="imagenFile" name="imagenFile" accept=".jpg,.jpeg,.png,.webp" />
+                <span class="sm-field-error">@Html.ValidationMessage("imagenFile")</span>
+                <small style="color:var(--muted-fg);">Deja este campo vacío para conservar la imagen actual.</small>
             </div>
             <div class="sm-field">
                 <label asp-for="SiniestroId">Siniestro</label>

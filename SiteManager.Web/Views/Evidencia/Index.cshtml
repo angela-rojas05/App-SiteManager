@@ -18,6 +18,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Imagen</th>
                 <th>Título</th>
                 <th>Descripción</th>
                 <th>Siniestro</th>
@@ -30,6 +31,12 @@
             {
                 <tr>
                     <td><span class="id-badge">#@item.Id.ToString().PadLeft(3, '0')</span></td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.RutaArchivo))
+                        {
+                            <img src="@item.RutaArchivo" alt="@item.Titulo" style="width:42px;height:42px;object-fit:cover;border-radius:6px;border:1px solid var(--border);" />
+                        }
+                    </td>
                     <td style="font-weight:600;">
                         <i class="fa-solid fa-camera" style="color:#0284c7;margin-right:6px;font-size:12px;"></i>
                         @item.Titulo

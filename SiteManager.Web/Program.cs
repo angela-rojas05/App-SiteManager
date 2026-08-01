@@ -1,24 +1,27 @@
+using Microsoft.EntityFrameworkCore;
 using SiteManager.Application.Services;
 using SiteManager.Domain.Interfaces;
+using SiteManager.Infrastructure.Data;
 using SiteManager.Infrastructure.Observers;
-using SiteManager.Infrastructure.Repositories;
+using SiteManager.Infrastructure.Repositories.Ef;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-// Ruta a la carpeta data
-var dataPath = Path.Combine(builder.Environment.ContentRootPath, "data");
-Directory.CreateDirectory(dataPath);
+// PostgreSQL con EF Core
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<SiteManagerContext>(options =>
+    options.UseNpgsql(connectionString));
 
-// Repositorios
-builder.Services.AddScoped<IClienteRepository>(_ => new JsonClienteRepository(dataPath));
-builder.Services.AddScoped<ISiniestroRepository>(_ => new JsonSiniestroRepository(dataPath));
-builder.Services.AddScoped<IEvidenciaRepository>(_ => new JsonEvidenciaRepository(dataPath));
-builder.Services.AddScoped<ICotizacionRepository>(_ => new JsonCotizacionRepository(dataPath));
-builder.Services.AddScoped<IMaterialRepository>(_ => new JsonMaterialRepository(dataPath));
-builder.Services.AddScoped<IReporteRepository>(_ => new JsonReporteRepository(dataPath));
-builder.Services.AddScoped<IUsuarioRepository>(_ => new JsonUsuarioRepository(dataPath));
+// Repositorios EF
+builder.Services.AddScoped<IClienteRepository, EfClienteRepository>();
+builder.Services.AddScoped<ISiniestroRepository, EfSiniestroRepository>();
+builder.Services.AddScoped<IEvidenciaRepository, EfEvidenciaRepository>();
+builder.Services.AddScoped<ICotizacionRepository, EfCotizacionRepository>();
+builder.Services.AddScoped<IMaterialRepository, EfMaterialRepository>();
+builder.Services.AddScoped<IReporteRepository, EfReporteRepository>();
+builder.Services.AddScoped<IUsuarioRepository, EfUsuarioRepository>();
 
 // Observers
 builder.Services.AddScoped<ISiniestroObserver, EmailObserver>();
