@@ -506,7 +506,7 @@ Durante esta evolución se identificaron deudas técnicas concretas que surgiero
 | `EmailObserver` solo imprime en consola, no envía notificaciones reales | Accidental | El patrón Observer está bien estructurado pero es inútil en producción |
 | Almacenamiento en JSON en lugar de MySQL | Deliberada | Crece con cada módulo nuevo y no soporta relaciones reales entre entidades |
 
-Para más detalle sobre cada deuda, su causa y propuesta de solución, consultar el archivo `Documentation/ADR-06-Angela-Rojas.md`.
+Para más detalle sobre cada deuda, su causa y propuesta de solución, consultar el archivo `SiteManager.Web/Documentation/ADR-06-Angela-Rojas.md`.
 
 ---
 
@@ -521,7 +521,7 @@ Esto dio una red de seguridad real antes de tocar el mecanismo de
 persistencia completo del sistema — cualquier cambio que rompiera algo se
 detecta antes de fusionarse a la rama principal.
 
-📄 Detalle completo en `Documentation/ADR-07-Angela-Rojas.md`
+📄 Detalle completo en `SiteManager.Web/Documentation/ADR-07-Angela-Rojas.md`
 
 ---
 
@@ -552,7 +552,7 @@ ahora permite **subir una imagen real** desde el navegador:
   anterior; si no se sube ninguna, se conserva la existente.
 - Al eliminar una evidencia, su archivo físico también se elimina.
 
-📄 Detalle completo en `Documentation/ADR-08-Angela-Rojas.md`
+📄 Detalle completo en `SiteManager.Web/Documentation/ADR-08-Angela-Rojas.md`
 
 ---
 ---
@@ -578,8 +578,8 @@ ahora permite **subir una imagen real** desde el navegador:
 Además de los ADR individuales en `Documentation/`, este repositorio
 incluye dos documentos de cierre para la entrega final:
 
-- 📄 [`Documentation/ADR-09-Angela-Rojas.md`](./Documentation/ADR-09-Angela-Rojas.md) — resumen cronológico de las 8 decisiones arquitectónicas del proyecto.
-- 🧭 [`Documentation/ATAM-SiteManager.md`](./Documentation/ATAM-SiteManager.md) — evaluación de riesgos, trade-offs y puntos de sensibilidad de la arquitectura final.
+- 📄 [`SiteManager.Web/Documentation/ADR-09-Angela-Rojas.md`](./SiteManager.Web/Documentation/ADR-09-Angela-Rojas.md) — resumen cronológico de las 8 decisiones arquitectónicas del proyecto.
+- 🧭 [`SiteManager.Web/Documentation/ATAM-SiteManager.md`](./SiteManager.Web/Documentation/ATAM-SiteManager.md) — evaluación de riesgos, trade-offs y puntos de sensibilidad de la arquitectura final.
 
 ---
 
