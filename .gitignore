@@ -1,1 +1,9 @@
+bin/
+obj/
 .vs/
+
+# Imágenes subidas en tiempo de ejecución (ADR-08) — no se versionan, solo la carpeta
+SiteManager.Web/wwwroot/uploads/evidencias/*
+!SiteManager.Web/wwwroot/uploads/evidencias/.gitkeep
+
+SiteManager.Web/appsettings.json
