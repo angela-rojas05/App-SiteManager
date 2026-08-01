@@ -4,11 +4,13 @@
 
 En esta etapa se incorporan **patrones de diseño GOF (Gang of Four)** para mejorar la organización interna del sistema, reducir el acoplamiento entre componentes y facilitar el mantenimiento del código. A diferencia de las evoluciones anteriores, esta versión no modifica la arquitectura general de la solución, sino que fortalece su diseño interno mediante la implementación de los patrones **Repository** y **Observer**.
 
-![Estado](https://img.shields.io/badge/Estado-En%20desarrollo-orange)
-![Evolución](https://img.shields.io/badge/Evolución-GOF-success)
+![Estado](https://img.shields.io/badge/Estado-Producción_Local-brightgreen)
+![Evolución](https://img.shields.io/badge/Evolución-PostgreSQL-success)
 ![Patrones](https://img.shields.io/badge/Patrones-Repository%20%7C%20Observer-blue)
 ![Arquitectura](https://img.shields.io/badge/Arquitectura-Layered-purple)
 ![ASP.NET](https://img.shields.io/badge/ASP.NET-Core-green)
+![BD](https://img.shields.io/badge/Base_de_Datos-PostgreSQL-336791)
+![Tests](https://img.shields.io/badge/Tests-xUnit-9b59b6)
 
 ---
 
@@ -31,7 +33,11 @@ En esta etapa se incorporan **patrones de diseño GOF (Gang of Four)** para mejo
 - Módulos del sistema
 - Instalación y ejecución
 - Capturas de pantalla
+- Deuda Técnica Identificada
+- ADR-07 — Suite de Pruebas xUnit y Pipeline CI
+- ADR-08 — Migración de JSON a PostgreSQL + Módulo de Evidencias
 - Próximas mejoras
+- Documentación complementaria
 - Información del proyecto
 - Uso de Inteligencia Artificial
 
@@ -54,17 +60,14 @@ Es importante mencionar que esta evolución mantiene la Arquitectura en Capas im
 
 # 🚀 Evolución respecto a la rama API
 
-La implementación de patrones GOF representa una mejora en el diseño del software sin alterar la funcionalidad principal de la aplicación.
-
-| Rama API | Rama GOF |
-|-----------|-----------|
-| API REST funcional. | Se incorporan patrones de diseño GOF. |
-| Comunicación mediante HTTP y JSON. | Se mantiene la comunicación existente. |
-| Persistencia temporal mediante archivos JSON. | Se conserva la persistencia en JSON, ahora desacoplada mediante Repository. |
-| Lógica de notificaciones integrada. | Notificaciones gestionadas mediante Observer. |
-| ADR-04. | ADR-05. |
-
-Esta evolución demuestra cómo una arquitectura bien organizada permite incorporar mejoras internas sin afectar el funcionamiento general del sistema.
+| Rama | Evolución | ADR |
+|------|-----------|-----|
+| **Main** | Implementación inicial utilizando el patrón MVC. | ADR-01 |
+| **Capas** | Migración hacia una Arquitectura en Capas. | ADR-02 y ADR-03 |
+| **API** | Incorporación de una API REST para exponer servicios mediante HTTP y JSON. | ADR-04 |
+| **GOF** | Integración de los patrones Repository y Observer para mejorar el diseño interno del sistema. | ADR-05 |
+| **pipeline-ci** | Deuda técnica identificada + suite de pruebas xUnit y pipeline de Integración Continua. | ADR-06 y ADR-07 |
+| **Database** | Migración de JSON a PostgreSQL con Entity Framework Core, y subida real de imágenes en el módulo de Evidencias. | ADR-08 |
 
 ---
 
@@ -211,10 +214,17 @@ Los patrones GOF se integran sobre la Arquitectura en Capas previamente implemen
 SiteManager
 
 ├── SiteManager.Web
+│   ├── Controllers/
+│   ├── Views/
+│   ├── wwwroot/uploads/evidencias/   ← imágenes de evidencias (ADR-08)
+│   └── Documentation/                ← ADR, ATAM y ADR consolidado
 ├── SiteManager.Api
 ├── SiteManager.Application
 ├── SiteManager.Domain
-└── SiteManager.Infrastructure
+├── SiteManager.Infrastructure
+│   ├── Repositories/Ef/              ← repositorios EF Core (ADR-08)
+│   └── Migrations/                   ← migraciones EF Core (ADR-08)
+└── SiteManager.xUnit                 ← pruebas unitarias (ADR-07)
 ```
 
 La estructura general de la solución permanece estable; la evolución se centra en la incorporación de nuevas interfaces y clases relacionadas con los patrones Repository y Observer.
@@ -231,7 +241,8 @@ La estructura general de la solución permanece estable; la evolución se centra
 | Arquitectura en Capas | Organización del proyecto. |
 | Repository Pattern | Abstracción del acceso a datos. |
 | Observer Pattern | Gestión de notificaciones. |
-| JSON | Persistencia temporal de información. |
+| PostgreSQL | Base de datos relacional (persistencia real). |
+| Entity Framework Core + Npgsql | ORM y proveedor de conexión a PostgreSQL. |
 | HTTP | Comunicación entre clientes y la API. |
 | Swagger / OpenAPI | Documentación y pruebas de la API. |
 | HTML5 | Estructura de las vistas. |
@@ -257,11 +268,34 @@ La estructura general de la solución permanece estable; la evolución se centra
 
 # 💾 Persistencia de datos
 
-Al igual que en la evolución anterior, **SiteManager continúa utilizando archivos JSON como mecanismo de persistencia temporal**.
+> [!IMPORTANT]
+> A partir del **ADR-08**, SiteManager dejó de usar archivos JSON como
+> almacenamiento y migró a **PostgreSQL** como base de datos relacional
+> real, usando **Entity Framework Core** con el proveedor **Npgsql**.
 
-La implementación del patrón **Repository** no modifica la tecnología de almacenamiento utilizada, sino que abstrae el acceso a los datos para evitar que el resto del sistema dependa directamente del mecanismo de persistencia.
+Gracias a que el patrón **Repository** (ADR-05) ya desacoplaba el acceso a
+datos del resto del sistema, esta migración se logró **sin modificar
+ningún controlador ni servicio** — el único cambio necesario fue
+reemplazar el registro de dependencias en `Program.cs`:
 
-Gracias a esta separación, una futura migración hacia un sistema gestor de bases de datos, como MySQL u otro motor relacional, podrá realizarse con un impacto mucho menor sobre la lógica de negocio y la interfaz de usuario.
+```csharp
+// Antes (JSON)
+builder.Services.AddScoped<ISiniestroRepository, JsonSiniestroRepository>();
+
+// Ahora (PostgreSQL vía EF Core)
+builder.Services.AddScoped<ISiniestroRepository, EfSiniestroRepository>();
+```
+
+Se implementaron 7 repositorios `Ef*Repository`, uno por cada entidad del
+sistema (Cliente, Siniestro, Evidencia, Cotización, Material, Reporte,
+Usuario), con sus relaciones, claves foráneas y reglas de eliminación
+(`CASCADE`, `RESTRICT`, `SET NULL`) correctamente definidas en
+`SiteManagerContext`.
+
+Las credenciales de conexión a la base de datos **no se versionan** en
+este repositorio — viven en `appsettings.json`, ignorado por Git. Se
+incluye `appsettings.Example.json` como plantilla para configurar un
+entorno local propio.
 
 ---
 
@@ -460,6 +494,51 @@ Para más detalle sobre cada deuda, su causa y propuesta de solución, consultar
 
 ---
 
+# ✅ ADR-07 — Suite de Pruebas xUnit y Pipeline CI
+
+Antes de ejecutar la migración de base de datos (ADR-08), se incorporó una
+suite de **pruebas unitarias con xUnit** y un **pipeline de Integración
+Continua** mediante GitHub Actions, que compila la solución y corre las
+pruebas automáticamente en cada `push`.
+
+Esto dio una red de seguridad real antes de tocar el mecanismo de
+persistencia completo del sistema — cualquier cambio que rompiera algo se
+detecta antes de fusionarse a la rama principal.
+
+📄 Detalle completo en `Documentation/ADR-07-Angela-Rojas.md`
+
+---
+
+# 🐘 ADR-08 — Migración de JSON a PostgreSQL + Subida Real de Imágenes
+
+## Migración de base de datos
+
+Se resolvió formalmente la **Deuda Técnica 3** identificada en el ADR-06:
+el sistema migró su almacenamiento de archivos JSON a **PostgreSQL**,
+usando Entity Framework Core y Npgsql. La migración inicial (`InitialCreate`)
+fue generada y aplicada con:
+
+```bash
+dotnet ef migrations add InitialCreate --project SiteManager.Infrastructure --startup-project SiteManager.Web
+dotnet ef database update --project SiteManager.Infrastructure --startup-project SiteManager.Web
+```
+
+## Módulo de Evidencias — subida real de imágenes
+
+Como parte de esta misma evolución, el módulo de **Evidencias** dejó de
+requerir que el usuario escribiera manualmente la ruta de un archivo, y
+ahora permite **subir una imagen real** desde el navegador:
+
+- Se valida el formato (JPG, PNG, WEBP) y el tamaño máximo (5 MB).
+- El archivo se guarda físicamente en `wwwroot/uploads/evidencias/` con
+  un nombre único, y solo la ruta relativa se persiste en PostgreSQL.
+- Al editar una evidencia, subir una nueva imagen reemplaza y elimina la
+  anterior; si no se sube ninguna, se conserva la existente.
+- Al eliminar una evidencia, su archivo físico también se elimina.
+
+📄 Detalle completo en `Documentation/ADR-08-Angela-Rojas.md`
+
+---
 
 # 👩‍💻 Información del proyecto
 
@@ -474,6 +553,16 @@ Para más detalle sobre cada deuda, su causa y propuesta de solución, consultar
 **Versión:** Rama GOF (ADR-05)
 
 **Licencia:** Uso académico.
+
+---
+
+# 📚 Documentación complementaria
+
+Además de los ADR individuales en `Documentation/`, este repositorio
+incluye dos documentos de cierre para la entrega final:
+
+- 📄 [`Documentation/ADR-09-Angela-Rojas.md`](./Documentation/ADR-09-Angela-Rojas.md) — resumen cronológico de las 8 decisiones arquitectónicas del proyecto.
+- 🧭 [`Documentation/ATAM-SiteManager.md`](./Documentation/ATAM-SiteManager.md) — evaluación de riesgos, trade-offs y puntos de sensibilidad de la arquitectura final.
 
 ---
 
@@ -501,5 +590,7 @@ Este repositorio documenta el desarrollo progresivo de **SiteManager**, mostrand
 | **Capas** | Migración hacia una Arquitectura en Capas. | ADR-02 y ADR-03 |
 | **API** | Incorporación de una API REST para exponer servicios mediante HTTP y JSON. | ADR-04 |
 | **GOF** | Integración de los patrones Repository y Observer para mejorar el diseño interno del sistema. | ADR-05 |
+| **pipeline-ci** | Deuda técnica identificada + suite de pruebas xUnit y pipeline de Integración Continua. | ADR-06 y ADR-07 |
+| **Database** | Migración de JSON a PostgreSQL con Entity Framework Core, y subida real de imágenes en el módulo de Evidencias. | ADR-08 |
 
 Cada rama representa una etapa independiente del proceso evolutivo del proyecto, permitiendo observar cómo las decisiones arquitectónicas y de diseño fueron fortaleciendo progresivamente la calidad, organización y mantenibilidad de la aplicación.
