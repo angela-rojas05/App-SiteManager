@@ -1,8 +1,24 @@
-# 🎯 SiteManager - Rama pipeline-ci 
+# 🎯 SiteManager - Rama Entrega-final
 
-> **Cuarta evolución del proyecto SiteManager.**
+> **Evolución del proyecto SiteManager.**
 
-En esta etapa se incorporan **patrones de diseño GOF (Gang of Four)** para mejorar la organización interna del sistema, reducir el acoplamiento entre componentes y facilitar el mantenimiento del código. A diferencia de las evoluciones anteriores, esta versión no modifica la arquitectura general de la solución, sino que fortalece su diseño interno mediante la implementación de los patrones **Repository** y **Observer**.
+Esta rama consolida el trabajo de las evoluciones anteriores y da el paso
+más importante hasta ahora: la migración del mecanismo de persistencia,
+de archivos JSON a una base de datos relacional real (**PostgreSQL**),
+junto con la implementación de la subida real de imágenes en el módulo de
+Evidencias.
+
+A diferencia de la evolución GOF —que fortaleció el diseño interno sin
+tocar la arquitectura general—, esta etapa sí modifica una pieza central
+del sistema: el mecanismo de persistencia. Sin embargo, gracias al patrón
+**Repository** implementado en el ADR-05, esta migración se logró sin
+alterar la Arquitectura en Capas ni modificar ningún controlador o
+servicio existente.
+
+Esta rama incluye, además, la suite de pruebas con **xUnit** y el
+pipeline de **Integración Continua** (ADR-07), que se implementaron justo
+antes de la migración para tener una red de seguridad al momento de
+ejecutar un cambio de esta magnitud.
 
 ![Estado](https://img.shields.io/badge/Estado-Producción_Local-brightgreen)
 ![Evolución](https://img.shields.io/badge/Evolución-PostgreSQL-success)
@@ -538,6 +554,7 @@ ahora permite **subir una imagen real** desde el navegador:
 
 📄 Detalle completo en `Documentation/ADR-08-Angela-Rojas.md`
 
+---
 ---
 
 # 👩‍💻 Información del proyecto
